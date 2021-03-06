@@ -24,7 +24,7 @@ module datapath (
     output [      3:0] ampM,  // to data memory: access memory pattern
 
     // from controller
-    input [4:0] immctrlD,
+    input [4:0] immctrlD, //which type
     input       itype,
     jalD,
     jalrD,
@@ -40,7 +40,7 @@ module datapath (
     input       memtoregD,
     regwriteD,
 
-    // to controller
+    // to alu controller
     output [ 6:0] opD,
     output [ 2:0] funct3D,
     output [ 6:0] funct7D,
@@ -49,8 +49,8 @@ module datapath (
     output [11:0] immD,
     output        zeroD,
     ltD
-
-    //    output       			flushE
+    //for pipeline
+    output       			flushE
 );
 
   // next PC logic (operates in fetch and decode)

@@ -13,13 +13,13 @@
 
 // ISA related
 
-`define ADDR_SIZE			32 // the width of an address
+`define ADDR_SIZE	32 // the width of an address
 `define INSTR_SIZE  32 // the length of an instruction
 `define INSTR_WIDTH 5  // the bit width of an instruction
 
-`define XLEN				    32 // the data width of a register
-`define XLEN_WIDTH		5
-`define RFREG_NUM			32 // the number of registers
+`define XLEN		32 // the data width of a register
+`define XLEN_WIDTH	5
+`define RFREG_NUM	32 // the number of registers
 `define RFIDX_WIDTH 5  // the width of a register index
 
 `define IMEM_SIZE			1024
@@ -56,12 +56,12 @@
 `define FUNCT3_SH	3'b001
 `define FUNCT3_SW	3'b010
 
-`define FUNCT3_ADDI	3'b000
-`define FUNCT3_SLTI	3'b010
+`define FUNCT3_ADDI		3'b000
+`define FUNCT3_SLTI		3'b010
 `define FUNCT3_SLTIU	3'b011
-`define FUNCT3_XORI	3'b100
-`define FUNCT3_ORI	3'b110
-`define FUNCT3_ANDI	3'b111
+`define FUNCT3_XORI		3'b100
+`define FUNCT3_ORI		3'b110
+`define FUNCT3_ANDI		3'b111
 
 `define FUNCT3_SL	3'b001
 `define FUNCT3_SR	3'b101

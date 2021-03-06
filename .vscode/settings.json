@@ -1,6 +1,5 @@
 {
 	"editor.defaultFormatter": "bmpenuelas.systemverilog-formatter-vscode",
 	"systemverilogFormatter.veribleBuild": "none",
-	"editor.formatOnSave": true,
-	"editor.linting.linter": "none",
+	"editor.formatOnSave": false
 }

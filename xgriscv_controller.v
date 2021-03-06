@@ -92,8 +92,8 @@ module controller (
   wire rv32_rd_x0 = (rd == 5'b00000);
   wire rv32_nop = rv32_addi & rv32_rs1_x0 & rv32_rd_x0 & (imm == 12'b0);  //addi x0, x0, 0 is nop
 
-  // I-type ok
-  assign itype = rv32_addri;
+  // I-type ok (jalr?)
+  assign itype = rv32_addri | rv32_load;
 
   // S-type ok
   wire stype = rv32_store;
