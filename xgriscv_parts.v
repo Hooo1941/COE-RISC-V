@@ -126,10 +126,10 @@ module imm (
   always  @(*)
 	 case (immctrl)
 		`IMM_CTRL_ITYPE:	immout <= {{{`XLEN-12}{iimm[11]}}, iimm[11:0]};
-		`IMM_CTRL_STYPE:	immout <= {20'b0, simm[11:0]};
+		`IMM_CTRL_STYPE:	immout <= {{{`XLEN-12}{simm[11]}}, simm[11:0]};
 		`IMM_CTRL_BTYPE:  immout <= 32'b0;
 		`IMM_CTRL_UTYPE:	immout <= {uimm[19:0], 12'b0};
-		`IMM_CTRL_JTYPE:	immout <= 32'b0;
+    `IMM_CTRL_JTYPE:	immout <= {{{`XLEN-21}{jimm[19]}}, jimm[19:0], 1'b0};
 		default:			    immout <= `XLEN'b0;
 	 endcase
 endmodule

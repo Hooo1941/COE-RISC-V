@@ -115,7 +115,7 @@ module controller (
 
   assign bunsigned = rv32_bltu | rv32_bgeu;
 
-  assign pcsrc = 0;
+  assign pcsrc = rv32_jal | rv32_jalr;
 
   assign alusrca = rv32_lui ? 2'b01 : (rv32_auipc ? 2'b10 : 2'b00);
 
