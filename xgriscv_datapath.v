@@ -50,7 +50,8 @@ module datapath (
     output        zeroD,
     ltD
     //for pipeline
-    output       			flushE
+    //output       			flushE
+    //'flushE' already declared in line 180 (= 0)
 );
 
   // next PC logic (operates in fetch and decode)
@@ -151,12 +152,13 @@ module datapath (
   wire [4:0] shamt0D = instrD[24:20];
   wire [4:0] shamtD;
   mux2 #(5) shamtmux (
-      rdata2D[4:0],
-      shamt0D,
-      itype,
+      rdata2D[4:0], //R[rs2]
+      shamt0D, //imm
+      itype, //1 is imm
       shamtD
-  );  // itype??????????????????rs2?????5?
+  );
 
+  // comparator for branch
   cmp cmp (
       rdata1D,
       rdata2D,
@@ -167,7 +169,7 @@ module datapath (
 
 
   // hazard detection
-  // to do
+  // TODO
 
   ///////////////////////////////////////////////////////////////////////////////////
   // ID/EX pipeline registers
@@ -319,7 +321,7 @@ module datapath (
   );
 
   // forwarding unit
-  // to do
+  // TODO
 
   // EX/MEM pipeline registers
   // for control signals
@@ -462,6 +464,6 @@ module datapath (
   );  // pc+4, for JAL(store pc+4 to rd)
 
   // write-back stage logic
-  assign wdataW = aluoutW;
+  assign wdataW = memtoregW ? memdataW : aluoutW;
 
 endmodule

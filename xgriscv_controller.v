@@ -119,7 +119,7 @@ module controller (
 
   assign alusrca = rv32_lui ? 2'b01 : (rv32_auipc ? 2'b10 : 2'b00);
 
-  assign alusrcb = rv32_lui | rv32_auipc | rv32_addri;
+  assign alusrcb = rv32_lui | rv32_auipc | rv32_addri | rv32_store | rv32_load;
 
   assign memwrite = rv32_store;
 
@@ -132,13 +132,20 @@ module controller (
 
   assign memtoreg = rv32_load;
 
-  assign regwrite = rv32_lui | rv32_auipc | rv32_addri;
+  assign regwrite = rv32_lui | rv32_auipc | rv32_addri | rv32_load;
 
 
   always @(*)
     case (opcode)
       `OP_LUI: aluctrl <= `ALU_CTRL_ADD;
       `OP_AUIPC: aluctrl <= `ALU_CTRL_ADD;
+      `OP_LOAD:
+      if (rv32_lb | rv32_lh | rv32_lw) begin
+        aluctrl <= `ALU_CTRL_ADD;
+      end else begin
+        aluctrl <= `ALU_CTRL_ADDU;
+      end
+      `OP_STORE: aluctrl <= `ALU_CTRL_ADD;
       `OP_ADDI:
       case (funct3)
         `FUNCT3_ADDI: aluctrl <= `ALU_CTRL_ADD;
