@@ -31,7 +31,7 @@ module controller (
     pcsrc,
     output reg [3:0] aluctrl,  // for the EX stage 
     output     [1:0] alusrca,
-    output           alusrcb,
+    output     [1:0] alusrcb,
     output           memwrite,
     lunsigned,  // for the MEM stage
     output     [1:0] lwhb,
@@ -117,33 +117,36 @@ module controller (
 
   assign pcsrc = rv32_jal | rv32_jalr;
 
-  assign alusrca = rv32_lui ? 2'b01 : (rv32_auipc ? 2'b10 : 2'b00);
+  assign alusrca = rv32_lui ? 2'b01 : ((rv32_auipc | rv32_jal) ? 2'b10 : 2'b00);
 
-  assign alusrcb = rv32_lui | rv32_auipc | rv32_addri | rv32_store | rv32_load;
+  assign alusrcb = (rv32_jal | rv32_jalr) ? 2'b10 : (rv32_lui | rv32_auipc | rv32_addri |
+  rv32_store | rv32_load ? 2'b00 : 2'b01);
 
   assign memwrite = rv32_store;
 
   assign swhb = ({2{rv32_sw}} & 2'b01) | ({2{rv32_sh}} & 2'b10) | ({2{rv32_sb}} & 2'b11);
 
-  assign lwhb = ({2{rv32_lw}} & 2'b00) | ({2{rv32_lh | rv32_lhu}} & 2'b01
-      ) | ({2{rv32_lb | rv32_lbu}} & 2'b10);
+  assign lwhb = ({2{rv32_lw}} & 2'b00) | 
+  ({2{rv32_lh | rv32_lhu}} & 2'b01) | 
+  ({2{rv32_lb | rv32_lbu}} & 2'b10);
 
   assign lunsigned = rv32_lhu | rv32_lbu;
 
   assign memtoreg = rv32_load;
 
-  assign regwrite = rv32_lui | rv32_auipc | rv32_addri | rv32_load | rv32_addrr;
-
+  assign regwrite = rv32_lui | rv32_auipc | rv32_addri |
+   rv32_load | rv32_addrr | rv32_jal | rv32_jalr;
 
   always @(*)
     case (opcode)
       `OP_LUI: aluctrl <= `ALU_CTRL_ADD;
       `OP_AUIPC: aluctrl <= `ALU_CTRL_ADD;
+      `OP_JAL: aluctrl <= `ALU_CTRL_ADD;
       `OP_LOAD:
-      if (rv32_lb | rv32_lh | rv32_lw) begin
-        aluctrl <= `ALU_CTRL_ADD;
-      end else begin
+      if (lunsigned) begin
         aluctrl <= `ALU_CTRL_ADDU;
+      end else begin
+        aluctrl <= `ALU_CTRL_ADD;
       end
       `OP_STORE: aluctrl <= `ALU_CTRL_ADD;
       `OP_ADDI:
@@ -169,12 +172,13 @@ module controller (
       endcase
       `OP_ADD:
       case (funct3)
-        `FUNCT3_ADD: 
+        `FUNCT3_ADD:
         if (funct7 == `FUNCT7_ADD) begin
           aluctrl <= `ALU_CTRL_ADD;
         end else begin
-          if (funct7 == `FUNCT7_SUB)
+          if (funct7 == `FUNCT7_SUB) begin
           aluctrl <= `ALU_CTRL_SUB;
+          end
         end
         `FUNCT3_SLL: aluctrl <= `ALU_CTRL_SLL;
         `FUNCT3_SLT: aluctrl <= `ALU_CTRL_SLT;

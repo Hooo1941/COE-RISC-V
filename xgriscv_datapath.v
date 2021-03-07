@@ -32,7 +32,7 @@ module datapath (
     pcsrcD,
     input [3:0] aluctrlD,
     input [1:0] alusrcaD,
-    input       alusrcbD,
+    input [1:0] alusrcbD,
     input       memwriteD,
     lunsignedD,
     input [1:0] lwhbD,
@@ -134,7 +134,6 @@ module datapath (
       immoutD
   );
 
-  assign pcbranchD = 32'b0;
 
   // register file (operates in decode and writeback)
   regfile rf (
@@ -147,6 +146,8 @@ module datapath (
       waddrW,
       wdataW
   );
+
+  assign pcbranchD = (jalrD ? rdata1D : pcD) + immoutD;
 
   // shift amount
   wire [4:0] shamt0D = instrD[24:20];
@@ -175,11 +176,11 @@ module datapath (
   // ID/EX pipeline registers
 
   // for control signals
-  wire memtoregE, regwriteE, memwriteE, lunsignedE, alusrcbE, jalE;
-  wire [1:0] swhbE, lwhbE, alusrcaE;
+  wire memtoregE, regwriteE, memwriteE, lunsignedE, jalE;
+  wire [1:0] swhbE, lwhbE, alusrcaE, alusrcbE;
   wire [3:0] aluctrlE;
   wire flushE = 0;
-  floprc #(16) regE (
+  floprc #(17) regE (
       clk,
       reset,
       flushE,
@@ -301,9 +302,10 @@ module datapath (
       forwardbE,
       srcb2E
   );  // srcb1mux
-  mux2 #(`XLEN) srcb2mux (
+  mux3 #(`XLEN) srcb2mux (
       srcb2E,
       immoutE,
+      4,
       alusrcbE,
       srcb3E
   );  // srcb2mux
@@ -328,7 +330,7 @@ module datapath (
   wire memtoregM, regwriteM, jalM, lunsignedM;
   wire [1:0] swhbM, lwhbM;
   wire flushM = 0;
-  floprc #(9) regM (
+  floprc #(10) regM (
       clk,
       reset,
       flushM,
@@ -423,7 +425,7 @@ module datapath (
   // MEM/WB pipeline registers
   // for control signals
   wire flushW = 0;
-  floprc #(3) regW (
+  floprc #(4) regW (
       clk,
       reset,
       flushW,
