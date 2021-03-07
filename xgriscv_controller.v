@@ -132,7 +132,7 @@ module controller (
 
   assign memtoreg = rv32_load;
 
-  assign regwrite = rv32_lui | rv32_auipc | rv32_addri | rv32_load;
+  assign regwrite = rv32_lui | rv32_auipc | rv32_addri | rv32_load | rv32_addrr;
 
 
   always @(*)
@@ -167,6 +167,35 @@ module controller (
         endcase
         default: aluctrl <= `ALU_CTRL_ZERO;
       endcase
+      `OP_ADD:
+      case (funct3)
+        `FUNCT3_ADD: 
+        if (funct7 == `FUNCT7_ADD) begin
+          aluctrl <= `ALU_CTRL_ADD;
+        end else begin
+          if (funct7 == `FUNCT7_SUB)
+          aluctrl <= `ALU_CTRL_SUB;
+        end
+        `FUNCT3_SLL: aluctrl <= `ALU_CTRL_SLL;
+        `FUNCT3_SLT: aluctrl <= `ALU_CTRL_SLT;
+        `FUNCT3_SLTU: aluctrl <= `ALU_CTRL_SLTU;
+        `FUNCT3_XOR: aluctrl <= `ALU_CTRL_XOR;
+        `FUNCT3_OR: aluctrl <= `ALU_CTRL_OR;
+        `FUNCT3_AND: aluctrl <= `ALU_CTRL_AND;
+        `FUNCT3_SL:
+        case (funct7)
+          `FUNCT3_SLL: aluctrl <= `ALU_CTRL_SLL;
+          default: aluctrl <= `ALU_CTRL_ZERO;
+        endcase
+        `FUNCT3_SR:
+        case (funct7)
+          `FUNCT7_SRL: aluctrl <= `ALU_CTRL_SRL;
+          `FUNCT7_SRA: aluctrl <= `ALU_CTRL_SRA;
+          default: aluctrl <= `ALU_CTRL_ZERO;
+        endcase
+        default: aluctrl <= `ALU_CTRL_ZERO;
+      endcase
+
       default: aluctrl <= `ALU_CTRL_ZERO;
     endcase
 
