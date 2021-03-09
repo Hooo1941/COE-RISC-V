@@ -128,7 +128,10 @@
 `define IMM_CTRL_UTYPE	5'b00010
 `define IMM_CTRL_JTYPE	5'b00001
 
-
+`define BRANCH_BLT 4'b1000
+`define BRANCH_BGE 4'b0100
+`define BRANCH_BEQ 4'b0010
+`define BRANCH_BNE 4'b0001
 
 
 

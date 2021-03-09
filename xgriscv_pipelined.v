@@ -71,7 +71,7 @@ module xgriscv (
   wire zeroD, ltD;
   wire [4:0] immctrlD;
   wire itypeD, jalD, jalrD, bunsignedD, pcsrcD;
-  wire [3:0] aluctrlD;
+  wire [3:0] branchD, aluctrlD;
   wire [1:0] alusrcaD, alusrcbD;
   wire memwriteD, lunsignedD;
   wire [1:0] swhbD, lwhbD;
@@ -93,6 +93,7 @@ module xgriscv (
       jalD,
       jalrD,
       bunsignedD,
+      branchD,
       pcsrcD,
       aluctrlD,
       alusrcaD,
@@ -120,6 +121,7 @@ module xgriscv (
       jalD,
       jalrD,
       bunsignedD,
+      branchD,
       pcsrcD,
       aluctrlD,
       alusrcaD,

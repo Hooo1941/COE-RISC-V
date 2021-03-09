@@ -28,7 +28,8 @@ module controller (
     jal,
     jalr,
     bunsigned,
-    pcsrc,
+    output [3:0] branch,
+    output pcsrc,
     output reg [3:0] aluctrl,  // for the EX stage 
     output     [1:0] alusrca,
     output     [1:0] alusrcb,
@@ -92,8 +93,8 @@ module controller (
   wire rv32_rd_x0 = (rd == 5'b00000);
   wire rv32_nop = rv32_addi & rv32_rs1_x0 & rv32_rd_x0 & (imm == 12'b0);  //addi x0, x0, 0 is nop
 
-  // I-type ok (jalr?)
-  assign itype = rv32_addri | rv32_load;
+  // I-type ok
+  assign itype = rv32_addri | rv32_load | rv32_jalr;
 
   // S-type ok
   wire stype = rv32_store;
@@ -115,12 +116,22 @@ module controller (
 
   assign bunsigned = rv32_bltu | rv32_bgeu;
 
-  assign pcsrc = rv32_jal | rv32_jalr;
+  wire blt = rv32_blt | rv32_bltu;
+  
+  wire beq = rv32_beq;
+
+  wire bne = rv32_bne;
+
+  wire bge = rv32_bge | rv32_bgeu;
+
+  assign branch = {blt, bge, beq, bne};
+
+  assign pcsrc = rv32_branch;
 
   assign alusrca = rv32_lui ? 2'b01 : ((rv32_auipc | rv32_jal) ? 2'b10 : 2'b00);
 
   assign alusrcb = (rv32_jal | rv32_jalr) ? 2'b10 : (rv32_lui | rv32_auipc | rv32_addri |
-  rv32_store | rv32_load ? 2'b00 : 2'b01);
+  rv32_store | rv32_load ? 2'b01 : 2'b00);
 
   assign memwrite = rv32_store;
 

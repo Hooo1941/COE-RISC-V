@@ -29,7 +29,8 @@ module datapath (
     jalD,
     jalrD,
     bunsignedD,
-    pcsrcD,
+    input [3:0] branchD,
+    input pcsrcD,
     input [3:0] aluctrlD,
     input [1:0] alusrcaD,
     input [1:0] alusrcbD,
@@ -56,10 +57,11 @@ module datapath (
 
   // next PC logic (operates in fetch and decode)
   wire [`ADDR_SIZE-1:0] pcplus4F, nextpcF, pcbranchD, pcadder2aD, pcadder2bD, pcbranch0D;
+  wire branchT;
   mux2 #(`ADDR_SIZE) pcsrcmux (
       pcplus4F,
       pcbranchD,
-      pcsrcD,
+      (pcsrcD & branchT) | jalD,
       nextpcF
   );
 
@@ -147,8 +149,6 @@ module datapath (
       wdataW
   );
 
-  assign pcbranchD = (jalrD ? rdata1D : pcD) + immoutD;
-
   // shift amount
   wire [4:0] shamt0D = instrD[24:20];
   wire [4:0] shamtD;
@@ -167,6 +167,12 @@ module datapath (
       zeroD,
       ltD
   );
+
+  assign branchT = ((branchD == `BRANCH_BLT) & ltD) 
+                 | ((branchD == `BRANCH_BGE) & ~ltD) 
+                 | ((branchD == `BRANCH_BEQ) & zeroD) 
+                 | ((branchD == `BRANCH_BNE) & ~zeroD);
+  assign pcbranchD = (jalrD ? rdata1D : pcD) + immoutD;
 
 
   // hazard detection
@@ -330,7 +336,7 @@ module datapath (
   wire memtoregM, regwriteM, jalM, lunsignedM;
   wire [1:0] swhbM, lwhbM;
   wire flushM = 0;
-  floprc #(10) regM (
+  floprc #(9) regM (
       clk,
       reset,
       flushM,
@@ -425,7 +431,7 @@ module datapath (
   // MEM/WB pipeline registers
   // for control signals
   wire flushW = 0;
-  floprc #(4) regW (
+  floprc #(3) regW (
       clk,
       reset,
       flushW,

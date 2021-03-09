@@ -127,7 +127,7 @@ module imm (
 	 case (immctrl)
 		`IMM_CTRL_ITYPE:	immout <= {{{`XLEN-12}{iimm[11]}}, iimm[11:0]};
 		`IMM_CTRL_STYPE:	immout <= {{{`XLEN-12}{simm[11]}}, simm[11:0]};
-		`IMM_CTRL_BTYPE:  immout <= 32'b0;
+    `IMM_CTRL_BTYPE:  immout <= {{{`XLEN-13}{bimm[11]}}, bimm[11:0], 1'b0};
 		`IMM_CTRL_UTYPE:	immout <= {uimm[19:0], 12'b0};
     `IMM_CTRL_JTYPE:	immout <= {{{`XLEN-21}{jimm[19]}}, jimm[19:0], 1'b0};
 		default:			    immout <= `XLEN'b0;
@@ -135,12 +135,13 @@ module imm (
 endmodule
 
 // shift left by 1 for address calculation
-module sl1(
-	input  [`ADDR_SIZE-1:0] a,
-	output [`ADDR_SIZE-1:0] y);
+// no need
+// module sl1(
+// 	input  [`ADDR_SIZE-1:0] a,
+// 	output [`ADDR_SIZE-1:0] y);
 
-  assign  y = {a[`ADDR_SIZE-2:0], 1'b0};
-endmodule
+//   assign  y = {a[`ADDR_SIZE-2:0], 1'b0};
+// endmodule
 
 // comparator for branch
 module cmp(
