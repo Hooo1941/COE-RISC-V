@@ -24,13 +24,13 @@ module datapath (
     output [      3:0] ampM,  // to data memory: access memory pattern
 
     // from controller
-    input [4:0] immctrlD, //which type
+    input [4:0] immctrlD,  //which type
     input       itype,
     jalD,
     jalrD,
     bunsignedD,
     input [3:0] branchD,
-    input pcsrcD,
+    input       pcsrcD,
     input [3:0] aluctrlD,
     input [1:0] alusrcaD,
     input [1:0] alusrcbD,
@@ -155,9 +155,9 @@ module datapath (
   wire [4:0] shamt0D = instrD[24:20];
   wire [4:0] shamtD;
   mux2 #(5) shamtmux (
-      rdata2D[4:0], //R[rs2]
-      shamt0D, //imm
-      itype, //1 is imm
+      rdata2D[4:0],  //R[rs2]
+      shamt0D,  //imm
+      itype,  //1 is imm
       shamtD
   );
 
@@ -217,7 +217,6 @@ module datapath (
         jalE
       }
   );
-  wire [1:0] forwardaE = 2'b0, forwardbE = 2'b0;
 
   // for data
   wire [`XLEN-1:0] srca1E, srcb1E, immoutE, srca2E, srca3E, srcb2E, srcb3E, aluoutE;
@@ -289,10 +288,12 @@ module datapath (
   );  // pc+4
 
   // execute stage logic
+  wire [1:0] forwardaE = 2'b0, 
+  forwardbE = 2'b0;
   mux3 #(`XLEN) srca1mux (
       srca1E,
-      wdataW,
-      aluoutM,
+      wdataW, //from wb
+      aluoutM, //from mem
       forwardaE,
       srca2E
   );  // srca1mux
@@ -330,9 +331,6 @@ module datapath (
       geE
   );
 
-  // forwarding unit
-  // TODO
-
   // EX/MEM pipeline registers
   // for control signals
   wire memtoregM, regwriteM, jalM, lunsignedM;
@@ -347,8 +345,9 @@ module datapath (
   );
 
   // for data
-  wire [`RFIDX_WIDTH-1:0] rdM;
+  wire [`RFIDX_WIDTH-1:0] rs2M, rdM;
   wire [`ADDR_SIZE-1:0] pcplus4M;
+  wire [`XLEN-1:0] writedataM1;
   floprc #(`XLEN) pr1M (
       clk,
       reset,
@@ -361,7 +360,7 @@ module datapath (
       reset,
       flushM,
       srcb1E,
-      writedataM
+      writedataM1
   );
   floprc #(`RFIDX_WIDTH) pr3M (
       clk,
@@ -377,8 +376,13 @@ module datapath (
       pcplus4E,
       pcplus4M
   );  // pc+4
-
-  // mux2 #(32)  forwardmmux(writedataM1, memdataW, forwardM, writedataM); // forwarding unit, to do
+  floprc #(`RFIDX_WIDTH) pr5M (
+      clk,
+      reset,
+      flushM,
+      rs2E,
+      rs2M
+  );
 
   // memory stage logic
   ampattern amp (
@@ -443,6 +447,14 @@ module datapath (
 
   // for data
   wire [`XLEN-1:0] aluoutW, memdataW, wdata0W, pcplus4W;
+  wire forwardM = waddrW == rs2M;
+
+  mux2 #(32) forwardmemmux (
+      writedataM1,
+      wdataW,
+      forwardM,
+      writedataM
+  );
 
   floprc #(`XLEN) pr1W (
       clk,

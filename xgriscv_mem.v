@@ -19,7 +19,7 @@ module imem (
   reg [`INSTR_SIZE-1:0] RAM[`IMEM_SIZE-1:0];
 
   initial begin
-    $readmemh("riscv32_forwarding_sim1.dat", RAM);
+    $readmemh("mysim.dat", RAM);
   end
 
   assign rd = RAM[a[11:2]];  // instruction size aligned
