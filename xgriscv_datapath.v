@@ -151,18 +151,17 @@ module datapath (
       wdataW
   );
 
-  wire [`XLEN-1:0] forwardMD;
   wire forwardD1, forwardD2;
 
   mux2 #(`XLEN) rdata1mux (
       rdata1R,
-      forwardMD,
+      aluoutM,
       forwardD1,
       rdata1D
   );
   mux2 #(`XLEN) rdata2mux (
       rdata2R,
-      forwardMD,
+      aluoutM,
       forwardD2,
       rdata2D
   );
@@ -304,12 +303,10 @@ module datapath (
   );  // pc+4
 
   // execute stage logic
-  wire [1:0] forwardaE = 2'b0, 
-  forwardbE = 2'b0;
-  mux3 #(`XLEN) srca1mux (
+  wire forwardaE, forwardbE;
+  mux2 #(`XLEN) srca1mux (
       srca1E,
-      wdataW, //from wb
-      aluoutM, //from mem
+      aluoutM,
       forwardaE,
       srca2E
   );  // srca1mux
@@ -320,9 +317,8 @@ module datapath (
       alusrcaE,
       srca3E
   );  // srca2mux
-  mux3 #(`XLEN) srcb1mux (
+  mux2 #(`XLEN) srcb1mux (
       srcb1E,
-      wdataW,
       aluoutM,
       forwardbE,
       srcb2E
@@ -448,9 +444,11 @@ module datapath (
       lwhbM,
       memdataM
   );
-  assign forwardMD = memtoregM ? memdataM : aluoutM;
+
   assign forwardD1 = (rs1D == rdM) & regwriteM;
   assign forwardD2 = (rs2D == rdM) & regwriteM;
+  assign forwardaE = (rs1E == rdM) & regwriteM;
+  assign forwardbE = (rs2E == rdM) & regwriteM;
 
   // MEM/WB pipeline registers
   // for control signals

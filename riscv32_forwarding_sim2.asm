@@ -21,4 +21,5 @@ br1: 	jalr x0, br1ret
 
 # WB->MEM forwardM ok(add->store, load->store)
 # MEM->EX 
-# MEM->ID ok(addi(load)->*->branch:rs1, rs2)
+# MEM->ID ok(addi->*->branch:rs1, rs2)
+# in real world, ld->use need a stall
