@@ -14,15 +14,15 @@
 // pc register with write enable
 module pcenr (
 	input             		clk, reset,
-//	input             		en,
+	input             		en,
 	input      [`XLEN-1:0]	d, 
 	output reg [`XLEN-1:0]	q);
  
 	always @(posedge clk, posedge reset)
 	// if      (reset) q <= 0;
     if (reset) 
-    	q <= `ADDR_SIZE'h80000000 ; 
-    else //if (en)    
+    	q <= `ADDR_SIZE'h80000000 ;
+    else if (en)    
     	q <=  d;
 endmodule
 
@@ -44,6 +44,29 @@ module floprc #(parameter WIDTH = 8)
     if (reset)      q <= 0;
     else if (clear) q <= 0;
     else            q <= d;
+endmodule
+
+module flopenrc #(parameter WIDTH = 8)
+                 (input                  clk, reset,
+                  input                  en, clear,
+                  input      [WIDTH-1:0] d, 
+                  output reg [WIDTH-1:0] q);
+ 
+  always @(posedge clk, posedge reset)
+    if      (reset) q <= 0;
+    else if (clear) q <= 0;
+    else if (en)    q <= d;
+endmodule
+
+module flopenr #(parameter WIDTH = 8)
+                (input                  clk, reset,
+                 input                  en,
+                 input      [WIDTH-1:0] d, 
+                 output reg [WIDTH-1:0] q);
+ 
+  always @(posedge clk, posedge reset)
+    if      (reset) q <= 0;
+    else if (en)    q <=  d;
 endmodule
 
 module mux2 #(parameter WIDTH = 8)
@@ -120,17 +143,17 @@ module imm (
 	input	[11:0]			bimm, //instrD[31], instrD[7], instrD[30:25], instrD[11:8], 12 bits
 	input	[19:0]			uimm,
 	input	[19:0]			jimm,
-	input	[4:0]			 immctrl,
+	input	[4:0]			  immctrl,
 
 	output	reg [`XLEN-1:0] 	immout);
   always  @(*)
 	 case (immctrl)
 		`IMM_CTRL_ITYPE:	immout <= {{{`XLEN-12}{iimm[11]}}, iimm[11:0]};
 		`IMM_CTRL_STYPE:	immout <= {{{`XLEN-12}{simm[11]}}, simm[11:0]};
-    `IMM_CTRL_BTYPE:  immout <= {{{`XLEN-13}{bimm[11]}}, bimm[11:0], 1'b0};
-		`IMM_CTRL_UTYPE:	immout <= {uimm[19:0], 12'b0};
-    `IMM_CTRL_JTYPE:	immout <= {{{`XLEN-21}{jimm[19]}}, jimm[19:0], 1'b0};
-		default:			    immout <= `XLEN'b0;
+      `IMM_CTRL_BTYPE:  immout <= {{{`XLEN-13}{bimm[11]}}, bimm[11:0], 1'b0};
+      `IMM_CTRL_UTYPE:	immout <= {uimm[19:0], 12'b0};
+      `IMM_CTRL_JTYPE:	immout <= {{{`XLEN-21}{jimm[19]}}, jimm[19:0], 1'b0};
+      default:			    immout <= `XLEN'b0;
 	 endcase
 endmodule
 

@@ -61,7 +61,7 @@ module datapath (
   mux2 #(`ADDR_SIZE) pcsrcmux (
       pcplus4F,
       pcbranchD,
-      (pcsrcD & branchT) | jalD,
+      branchT | jalD,
       nextpcF
   );
 
@@ -69,9 +69,11 @@ module datapath (
   pcenr pcreg (
       clk,
       reset,
+      en,
       nextpcF,
       pcF
   );
+  assign en = 1;
   addr_adder pcadder1 (
       pcF,
       `ADDR_SIZE'b100,
@@ -82,7 +84,7 @@ module datapath (
   // ID/EX pipeline registers
   wire [`INSTR_SIZE-1:0] instrD;
   wire [`ADDR_SIZE-1:0] pcD, pcplus4D;
-  wire flushD = 0;
+  wire flushD = branchT | jalD;
 
   floprc #(`INSTR_SIZE) pr1D (
       clk,
@@ -173,7 +175,7 @@ module datapath (
                  | ((branchD == `BRANCH_BEQ) & zeroD) 
                  | ((branchD == `BRANCH_BNE) & ~zeroD);
   assign pcbranchD = (jalrD ? rdata1D : pcD) + immoutD;
-
+  //signed?
 
   // hazard detection
   // TODO
