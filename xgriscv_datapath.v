@@ -125,7 +125,7 @@ module datapath (
   wire [19:0] uimmD = instrD[31:12];
   wire [19:0] jimmD = {instrD[31], instrD[19:12], instrD[20], instrD[30:21]};
   wire [`XLEN-1:0] immoutD, shftimmD;
-  wire [`XLEN-1:0] rdata1D, rdata2D, wdataW;
+  wire [`XLEN-1:0] rdata1R, rdata2R, rdata1D, rdata2D, wdataW;
   wire [`RFIDX_WIDTH-1:0] waddrW;
 
   imm im (
@@ -144,11 +144,27 @@ module datapath (
       clk,
       rs1D,
       rs2D,
-      rdata1D,
-      rdata2D,
+      rdata1R,
+      rdata2R,
       regwriteW,
       waddrW,
       wdataW
+  );
+
+  wire [`XLEN-1:0] forwardMD;
+  wire forwardD1, forwardD2;
+
+  mux2 #(`XLEN) rdata1mux (
+      rdata1R,
+      forwardMD,
+      forwardD1,
+      rdata1D
+  );
+  mux2 #(`XLEN) rdata2mux (
+      rdata2R,
+      forwardMD,
+      forwardD2,
+      rdata2D
   );
 
   // shift amount
@@ -432,7 +448,9 @@ module datapath (
       lwhbM,
       memdataM
   );
-
+  assign forwardMD = memtoregM ? memdataM : aluoutM;
+  assign forwardD1 = (rs1D == rdM) & regwriteM;
+  assign forwardD2 = (rs2D == rdM) & regwriteM;
 
   // MEM/WB pipeline registers
   // for control signals
@@ -447,7 +465,7 @@ module datapath (
 
   // for data
   wire [`XLEN-1:0] aluoutW, memdataW, wdata0W, pcplus4W;
-  wire forwardM = waddrW == rs2M;
+  wire forwardM = (waddrW == rs2M) & regwriteW;
 
   mux2 #(32) forwardmemmux (
       writedataM1,

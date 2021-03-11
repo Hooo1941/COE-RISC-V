@@ -20,7 +20,5 @@ br1ret:	jalr x0, main
 br1: 	jalr x0, br1ret
 
 # WB->MEM forwardM ok(add->store, load->store)
-# MEM->EX WB->EX 
-# MEM->ID (jal->store, addi->*->store:rd)
-# (addi->*->branch:rs1, rs2)
-# EX->ID
+# MEM->EX 
+# MEM->ID ok(addi(load)->*->branch:rs1, rs2)
