@@ -86,7 +86,7 @@ module datapath (
   // IF/ID pipeline registers
   wire [`INSTR_SIZE-1:0] instrD;
   wire [`ADDR_SIZE-1:0] pcD, pcplus4D;
-  wire flushD = branchT | jalD | loadbranch;
+  wire flushD = ((branchT | jalD) & ~stall) | loadbranch;
 
   flopenrc #(`INSTR_SIZE) pr1D (
       clk,
@@ -350,7 +350,7 @@ module datapath (
       ltE,
       geE
   );
-  assign stall = ((branchD == 4'b0000) & memtoregE & ((rs1D == rdE) | (rs2D == rdE))) |  //load-use
+  assign stall = ((branchD == 4'b0000) & memtoregE & ((rs1D == rdE) | (rs2D == rdE)) & ~memwriteD) |  //load-use
   ((branchD != 4'b0000) & ~memtoregE & regwriteE & ((rs1D == rdE) | (rs2D == rdE)));  //arith-beq
 
   assign loadbranch = (branchD != 4'b0000) & memtoregE & ((rs1D == rdE) | (rs2D == rdE));
