@@ -56,13 +56,15 @@ module datapath (
 );
 
   // next PC logic (operates in fetch and decode)
-  wire [`ADDR_SIZE-1:0] pcplus4F, nextpcF, pcbranchD, pcadder2aD, pcadder2bD, pcbranch0D;
+  wire [`ADDR_SIZE-1:0] nextpcF1, pcplus4F, nextpcF, pcbranchD, pcadder2aD, pcadder2bD, pcbranch0D;
   wire branchT;
+  wire stall;
+  wire loadbranch;  //flush IF/ID, ID/EX pcD to pcF
   mux2 #(`ADDR_SIZE) pcsrcmux (
       pcplus4F,
       pcbranchD,
       branchT | jalD,
-      nextpcF
+      nextpcF1
   );
 
   // Fetch stage logic
@@ -73,7 +75,7 @@ module datapath (
       nextpcF,
       pcF
   );
-  assign en = 1;
+  assign en = ~stall;
   addr_adder pcadder1 (
       pcF,
       `ADDR_SIZE'b100,
@@ -81,33 +83,41 @@ module datapath (
   );
 
   ///////////////////////////////////////////////////////////////////////////////////
-  // ID/EX pipeline registers
+  // IF/ID pipeline registers
   wire [`INSTR_SIZE-1:0] instrD;
   wire [`ADDR_SIZE-1:0] pcD, pcplus4D;
-  wire flushD = branchT | jalD;
+  wire flushD = branchT | jalD | loadbranch;
 
-  floprc #(`INSTR_SIZE) pr1D (
+  flopenrc #(`INSTR_SIZE) pr1D (
       clk,
       reset,
+      en,
       flushD,
       instrF,
       instrD
   );  // instruction
-  floprc #(`ADDR_SIZE) pr2D (
+  flopenrc #(`ADDR_SIZE) pr2D (
       clk,
       reset,
+      en,
       flushD,
       pcF,
       pcD
   );  // pc
-  floprc #(`ADDR_SIZE) pr3D (
+  flopenrc #(`ADDR_SIZE) pr3D (
       clk,
       reset,
+      en,
       flushD,
       pcplus4F,
       pcplus4D
   );  // pc+4
-
+  mux2 #(`ADDR_SIZE) pcsrcmux2 (
+      nextpcF1,
+      pcD,
+      loadbranch,
+      nextpcF
+  );
   // Decode stage logic
   wire [`RFIDX_WIDTH-1:0] rs2D;
   assign opD = instrD[6:0];
@@ -190,10 +200,6 @@ module datapath (
                  | ((branchD == `BRANCH_BEQ) & zeroD) 
                  | ((branchD == `BRANCH_BNE) & ~zeroD);
   assign pcbranchD = (jalrD ? rdata1D : pcD) + immoutD;
-  //signed?
-
-  // hazard detection
-  // TODO
 
   ///////////////////////////////////////////////////////////////////////////////////
   // ID/EX pipeline registers
@@ -202,7 +208,7 @@ module datapath (
   wire memtoregE, regwriteE, memwriteE, lunsignedE, jalE;
   wire [1:0] swhbE, lwhbE, alusrcaE, alusrcbE;
   wire [3:0] aluctrlE;
-  wire flushE = 0;
+  wire flushE = loadbranch | stall;
   floprc #(17) regE (
       clk,
       reset,
@@ -303,9 +309,10 @@ module datapath (
   );  // pc+4
 
   // execute stage logic
-  wire forwardaE, forwardbE;
-  mux2 #(`XLEN) srca1mux (
+  wire [1:0] forwardaE, forwardbE;
+  mux3 #(`XLEN) srca1mux (
       srca1E,
+      wdataW,
       aluoutM,
       forwardaE,
       srca2E
@@ -317,8 +324,9 @@ module datapath (
       alusrcaE,
       srca3E
   );  // srca2mux
-  mux2 #(`XLEN) srcb1mux (
+  mux3 #(`XLEN) srcb1mux (
       srcb1E,
+      wdataW,
       aluoutM,
       forwardbE,
       srcb2E
@@ -342,7 +350,10 @@ module datapath (
       ltE,
       geE
   );
+  assign stall = ((branchD == 4'b0000) & memtoregE & ((rs1D == rdE) | (rs2D == rdE))) |  //load-use
+  ((branchD != 4'b0000) & ~memtoregE & regwriteE & ((rs1D == rdE) | (rs2D == rdE)));  //arith-beq
 
+  assign loadbranch = (branchD != 4'b0000) & memtoregE & ((rs1D == rdE) | (rs2D == rdE));
   // EX/MEM pipeline registers
   // for control signals
   wire memtoregM, regwriteM, jalM, lunsignedM;
@@ -447,8 +458,6 @@ module datapath (
 
   assign forwardD1 = (rs1D == rdM) & regwriteM;
   assign forwardD2 = (rs2D == rdM) & regwriteM;
-  assign forwardaE = (rs1E == rdM) & regwriteM;
-  assign forwardbE = (rs2E == rdM) & regwriteM;
 
   // MEM/WB pipeline registers
   // for control signals
@@ -503,5 +512,8 @@ module datapath (
 
   // write-back stage logic
   assign wdataW = memtoregW ? memdataW : aluoutW;
-
+  assign forwardaE = ((rs1E == rdM) & regwriteM) ? 2'b10 :
+  (((rs1E == waddrW) & regwriteW) ? 2'b01 : 2'b00);
+  assign forwardbE = ((rs2E == rdM) & regwriteM) ? 2'b10 :
+  (((rs2E == waddrW) & regwriteW) ? 2'b01 : 2'b00);
 endmodule
