@@ -85,7 +85,9 @@ module IP2SOC_Top(
     .amp(cpu_data_amp), 
     .daddr(cpu_data_addr), 
     .writedata(cpu_data_out), 
-    .readdata(cpu_data_in)
+    .readdata(cpu_data_in),
+    .ra3(sw_i[4:0]),
+    .reg_data(reg_data)
     );
          
   SEG7x16 U_7SEG(

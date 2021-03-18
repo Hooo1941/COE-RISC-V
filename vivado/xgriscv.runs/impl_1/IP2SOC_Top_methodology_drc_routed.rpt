@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date         : Thu Mar 18 13:53:43 2021
+| Date         : Thu Mar 18 14:33:48 2021
 | Host         : Hoo running 64-bit major release  (build 9200)
 | Command      : report_methodology -file IP2SOC_Top_methodology_drc_routed.rpt -rpx IP2SOC_Top_methodology_drc_routed.rpx
 | Design       : IP2SOC_Top
@@ -23,12 +23,12 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 698
+             Violations found: 746
 +-----------+----------+-----------------------------------------------------------+------------+
 | Rule      | Severity | Description                                               | Violations |
 +-----------+----------+-----------------------------------------------------------+------------+
 | SYNTH-5   | Warning  | Mapped onto distributed RAM because of timing constraints | 32         |
-| TIMING-17 | Warning  | Non-clocked sequential cell                               | 637        |
+| TIMING-17 | Warning  | Non-clocked sequential cell                               | 685        |
 | TIMING-18 | Warning  | Missing input or output delay                             | 25         |
 | TIMING-20 | Warning  | Non-clocked latch                                         | 4          |
 +-----------+----------+-----------------------------------------------------------+------------+
@@ -3378,6 +3378,246 @@ Related violations: <none>
 TIMING-17#637 Warning
 Non-clocked sequential cell  
 The clock pin U_xgriscv/dp/rf/rf_reg_r2_0_31_6_11/RAMD_D1/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#638 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_0_5/RAMA/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#639 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_0_5/RAMA_D1/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#640 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_0_5/RAMB/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#641 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_0_5/RAMB_D1/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#642 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_0_5/RAMC/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#643 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_0_5/RAMC_D1/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#644 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_0_5/RAMD/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#645 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_0_5/RAMD_D1/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#646 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_12_17/RAMA/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#647 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_12_17/RAMA_D1/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#648 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_12_17/RAMB/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#649 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_12_17/RAMB_D1/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#650 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_12_17/RAMC/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#651 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_12_17/RAMC_D1/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#652 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_12_17/RAMD/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#653 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_12_17/RAMD_D1/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#654 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_18_23/RAMA/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#655 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_18_23/RAMA_D1/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#656 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_18_23/RAMB/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#657 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_18_23/RAMB_D1/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#658 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_18_23/RAMC/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#659 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_18_23/RAMC_D1/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#660 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_18_23/RAMD/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#661 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_18_23/RAMD_D1/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#662 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_24_29/RAMA/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#663 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_24_29/RAMA_D1/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#664 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_24_29/RAMB/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#665 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_24_29/RAMB_D1/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#666 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_24_29/RAMC/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#667 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_24_29/RAMC_D1/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#668 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_24_29/RAMD/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#669 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_24_29/RAMD_D1/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#670 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_30_31/RAMA/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#671 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_30_31/RAMA_D1/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#672 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_30_31/RAMB/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#673 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_30_31/RAMB_D1/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#674 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_30_31/RAMC/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#675 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_30_31/RAMC_D1/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#676 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_30_31/RAMD/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#677 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_30_31/RAMD_D1/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#678 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_6_11/RAMA/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#679 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_6_11/RAMA_D1/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#680 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_6_11/RAMB/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#681 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_6_11/RAMB_D1/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#682 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_6_11/RAMC/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#683 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_6_11/RAMC_D1/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#684 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_6_11/RAMD/CLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#685 Warning
+Non-clocked sequential cell  
+The clock pin U_xgriscv/dp/rf/rf_reg_r3_0_31_6_11/RAMD_D1/CLK is not reached by a timing clock
 Related violations: <none>
 
 TIMING-18#1 Warning

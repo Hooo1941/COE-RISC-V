@@ -49,7 +49,9 @@ module datapath (
     rs1D,
     output [11:0] immD,
     output        zeroD,
-    ltD
+    ltD,
+    input  [4:0] ra3,
+    output [`XLEN-1:0] reg_data
     //for pipeline
     //output       			flushE
     //'flushE' already declared in line 180 (= 0)
@@ -158,7 +160,9 @@ module datapath (
       rdata2R,
       regwriteW,
       waddrW,
-      wdataW
+      wdataW,
+      ra3,
+      reg_data
   );
 
   wire forwardD1, forwardD2;

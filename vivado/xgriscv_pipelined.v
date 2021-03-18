@@ -46,7 +46,9 @@ module xgriscv_pipeline (
       amp,
       addr,
       writedata,
-      readdata
+      readdata,
+      ra3,
+      reg_data
   );
 
 endmodule
@@ -61,7 +63,9 @@ module xgriscv (
     output [            3:0] amp,
     output [ `ADDR_SIZE-1:0] daddr,
     output [      `XLEN-1:0] writedata,
-    input  [      `XLEN-1:0] readdata
+    input  [      `XLEN-1:0] readdata,
+    input  [4:0] ra3,
+    output [`XLEN-1:0] reg_data
 );
 
   wire [6:0] opD;
@@ -140,7 +144,9 @@ module xgriscv (
       rs1D,
       immD,
       zeroD,
-      ltD
+      ltD,
+      ra3,
+      reg_data
   );
 
 endmodule

@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date             : Thu Mar 18 13:53:44 2021
+| Date             : Thu Mar 18 14:33:50 2021
 | Host             : Hoo running 64-bit major release  (build 9200)
 | Command          : report_power -file IP2SOC_Top_power_routed.rpt -pb IP2SOC_Top_power_summary_routed.pb -rpx IP2SOC_Top_power_routed.rpx
 | Design           : IP2SOC_Top
@@ -50,15 +50,15 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |    <0.001 |        3 |       --- |             --- |
-| Slice Logic              |    <0.001 |     2611 |       --- |             --- |
+| Slice Logic              |    <0.001 |     2692 |       --- |             --- |
 |   LUT as Logic           |    <0.001 |     1403 |     63400 |            2.21 |
 |   Register               |    <0.001 |      529 |    126800 |            0.42 |
 |   CARRY4                 |    <0.001 |       52 |     15850 |            0.33 |
-|   LUT as Distributed RAM |    <0.001 |      176 |     19000 |            0.93 |
+|   LUT as Distributed RAM |    <0.001 |      200 |     19000 |            1.05 |
+|   F7/F8 Muxes            |    <0.001 |      141 |     63400 |            0.22 |
 |   BUFG                   |    <0.001 |        2 |        32 |            6.25 |
-|   F7/F8 Muxes            |    <0.001 |      109 |     63400 |            0.17 |
 |   Others                 |     0.000 |       35 |       --- |             --- |
-| Signals                  |    <0.001 |     1953 |       --- |             --- |
+| Signals                  |    <0.001 |     1960 |       --- |             --- |
 | I/O                      |     0.003 |       34 |       210 |           16.19 |
 | Static Power             |     0.097 |          |           |                 |
 | Total                    |     0.102 |          |           |                 |
@@ -220,6 +220,12 @@ Table of Contents
 |         rf_reg_r2_0_31_24_29 |    <0.001 |
 |         rf_reg_r2_0_31_30_31 |    <0.001 |
 |         rf_reg_r2_0_31_6_11  |    <0.001 |
+|         rf_reg_r3_0_31_0_5   |    <0.001 |
+|         rf_reg_r3_0_31_12_17 |    <0.001 |
+|         rf_reg_r3_0_31_18_23 |    <0.001 |
+|         rf_reg_r3_0_31_24_29 |    <0.001 |
+|         rf_reg_r3_0_31_30_31 |    <0.001 |
+|         rf_reg_r3_0_31_6_11  |    <0.001 |
 +------------------------------+-----------+
 
 

@@ -20,7 +20,9 @@ module regfile (
 
     input                    we3,
     input [`RFIDX_WIDTH-1:0] wa3,
-    input [       `XLEN-1:0] wd3
+    input [       `XLEN-1:0] wd3,
+    input [`RFIDX_WIDTH-1:0] ra3,
+    output [`XLEN-1:0] reg_data
 );
 
   reg [`XLEN-1:0] rf[`RFREG_NUM-1:0];
@@ -37,7 +39,7 @@ module regfile (
       $display("x%d = %h", wa3, wd3);
 `endif
     end
-
+  assign reg_data = (ra3 != 0) ? rf[ra3] : 0;
   assign rd1 = (ra1 != 0) ? rf[ra1] : 0;
   assign rd2 = (ra2 != 0) ? rf[ra2] : 0;
 endmodule
