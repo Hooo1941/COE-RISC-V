@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date         : Fri Mar 12 11:21:01 2021
+| Date         : Thu Mar 18 13:53:06 2021
 | Host         : Hoo running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file IP2SOC_Top_control_sets_placed.rpt
 | Design       : IP2SOC_Top
@@ -22,8 +22,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    18 |
-| Unused register locations in slices containing registers |    56 |
+| Number of unique control sets                            |    19 |
+| Unused register locations in slices containing registers |    55 |
 +----------------------------------------------------------+-------+
 
 
@@ -34,7 +34,7 @@ Table of Contents
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | No           | No                    | No                     |               4 |            1 |
-| No           | No                    | Yes                    |             397 |          211 |
+| No           | No                    | Yes                    |             398 |          203 |
 | No           | Yes                   | No                     |               0 |            0 |
 | Yes          | No                    | No                     |               0 |            0 |
 | Yes          | No                    | Yes                    |             127 |           65 |
@@ -45,28 +45,29 @@ Table of Contents
 3. Detailed Control Set Information
 -----------------------------------
 
-+----------------------------------+----------------------------------+-------------------------+------------------+----------------+
-|           Clock Signal           |           Enable Signal          |     Set/Reset Signal    | Slice Load Count | Bel Load Count |
-+----------------------------------+----------------------------------+-------------------------+------------------+----------------+
-|  U_7SEG/seg7_clk                 |                                  | U_7SEG/rst              |                1 |              3 |
-|  U_xgriscv/dp/pr1D/q_reg[1]_0[0] |                                  |                         |                1 |              4 |
-|  clk_IBUF_BUFG                   | U_xgriscv/dp/pr1D/q_reg[31]_3[0] | U_xgriscv/dp/pr2W/AR[0] |                2 |              6 |
-|  clk_IBUF_BUFG                   | U_xgriscv/dp/pr1M/E[0]           | U_xgriscv/dp/pr2W/AR[0] |                6 |              6 |
-|  clk_IBUF_BUFG                   | U_xgriscv/dp/pr1D/E[0]           | U_xgriscv/dp/pr3E/AR[0] |                5 |             13 |
-|  clk_IBUF_BUFG                   | U_xgriscv/dp/pr1D/q_reg[31]_3[0] | U_xgriscv/dp/pr1M/AR[0] |               11 |             26 |
-|  clk_IBUF_BUFG                   | U_xgriscv/dp/pr1M/E[0]           | U_xgriscv/dp/pr1M/AR[0] |               24 |             26 |
-|  Clk_CPU_BUFG                    | U_xgriscv/dp/regM/q_reg[12]      |                         |                8 |             32 |
-|  Clk_CPU_BUFG                    | U_xgriscv/dp/regM/q_reg[4]_0     |                         |                8 |             32 |
-|  Clk_CPU_BUFG                    | U_xgriscv/dp/pr1M/q_reg[28]_0    |                         |                8 |             32 |
-|  Clk_CPU_BUFG                    | U_xgriscv/dp/pr1M/q_reg[20]_0    |                         |                8 |             32 |
-|  clk_IBUF_BUFG                   | U_xgriscv/dp/pr1D/E[0]           | U_xgriscv/dp/pr1D/AR[0] |               17 |             50 |
-|  clk_IBUF_BUFG                   |                                  | U_7SEG/rst              |               34 |             57 |
-|  clk_IBUF_BUFG                   |                                  | U_xgriscv/dp/pr1D/AR[0] |               21 |             63 |
-|  clk_IBUF_BUFG                   |                                  | U_xgriscv/dp/pr1M/AR[0] |               44 |             65 |
-| ~clk_IBUF_BUFG                   | U_xgriscv/dp/pr3W/p_0_in         |                         |               12 |             96 |
-|  clk_IBUF_BUFG                   |                                  | U_xgriscv/dp/pr3E/AR[0] |               55 |            104 |
-|  clk_IBUF_BUFG                   |                                  | U_xgriscv/dp/pr2W/AR[0] |               56 |            105 |
-+----------------------------------+----------------------------------+-------------------------+------------------+----------------+
++----------------------------------+----------------------------------+--------------------------+------------------+----------------+
+|           Clock Signal           |           Enable Signal          |     Set/Reset Signal     | Slice Load Count | Bel Load Count |
++----------------------------------+----------------------------------+--------------------------+------------------+----------------+
+|  U_7SEG/seg7_clk                 |                                  | U_7SEG/rst               |                1 |              3 |
+|  U_xgriscv/dp/pr1D/q_reg[2]_0[0] |                                  |                          |                1 |              4 |
+|  clk_IBUF_BUFG                   | U_xgriscv/dp/pr1M/E[0]           | U_xgriscv/dp/pr8E/AR[0]  |               10 |             11 |
+|  Clk_CPU_BUFG                    | U_xgriscv/dp/pr1D/q_reg[31]_6[0] | U_xgriscv/dp/pr8E/AR[0]  |                6 |             12 |
+|  Clk_CPU_BUFG                    | U_xgriscv/dp/pr1D/E[0]           | U_xgriscv/dp/pr2W/AR[0]  |                9 |             17 |
+|  Clk_CPU_BUFG                    | U_xgriscv/dp/pr1D/q_reg[31]_6[0] | U_xgriscv/dp/pcreg/AR[0] |                8 |             20 |
+|  clk_IBUF_BUFG                   | U_xgriscv/dp/pr1M/E[0]           | U_xgriscv/dp/pcreg/AR[0] |               19 |             21 |
+|  clk_IBUF_BUFG                   |                                  | U_xgriscv/dp/pr1E/AR[0]  |                7 |             26 |
+|  Clk_CPU_BUFG                    | U_xgriscv/dp/regM/q_reg[12]      |                          |                8 |             32 |
+|  Clk_CPU_BUFG                    | U_xgriscv/dp/regM/q_reg[4]_0     |                          |                8 |             32 |
+|  Clk_CPU_BUFG                    | U_xgriscv/dp/pr1M/q_reg[20]_0    |                          |                8 |             32 |
+|  Clk_CPU_BUFG                    | U_xgriscv/dp/pr1M/q_reg[28]_0    |                          |                8 |             32 |
+|  Clk_CPU_BUFG                    |                                  | U_xgriscv/dp/pr1E/AR[0]  |               25 |             46 |
+|  Clk_CPU_BUFG                    | U_xgriscv/dp/pr1D/E[0]           | U_xgriscv/dp/pr1E/AR[0]  |               13 |             46 |
+|  clk_IBUF_BUFG                   |                                  | U_7SEG/rst               |               24 |             54 |
+|  Clk_CPU_BUFG                    |                                  | U_xgriscv/dp/pcreg/AR[0] |               44 |             74 |
+|  Clk_CPU_BUFG                    |                                  | U_xgriscv/dp/pr8E/AR[0]  |               54 |             95 |
+|  U_CLKDIV/q_reg[31]_BUFG         | U_xgriscv/dp/pr3W/p_0_in         |                          |               12 |             96 |
+|  Clk_CPU_BUFG                    |                                  | U_xgriscv/dp/pr2W/AR[0]  |               48 |            100 |
++----------------------------------+----------------------------------+--------------------------+------------------+----------------+
 
 
 +--------+-----------------------+
@@ -74,9 +75,9 @@ Table of Contents
 +--------+-----------------------+
 | 3      |                     1 |
 | 4      |                     1 |
-| 6      |                     2 |
-| 13     |                     1 |
-| 16+    |                    13 |
+| 11     |                     1 |
+| 12     |                     1 |
+| 16+    |                    15 |
 +--------+-----------------------+
 
 

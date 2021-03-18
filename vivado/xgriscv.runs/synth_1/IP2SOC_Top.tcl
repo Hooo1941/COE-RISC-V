@@ -14,7 +14,7 @@ set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_output_repo c:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-add_files c:/Users/Qiu/Desktop/codlab/work/vivado/coe/riscv-studentnosorting.coe
+add_files C:/Users/Qiu/Desktop/codlab/work/vivado/coe/riscv-studentnosorting.coe
 read_verilog -library xil_defaultlib {
   C:/Users/Qiu/Desktop/codlab/work/vivado/CLK_DIV.v
   C:/Users/Qiu/Desktop/codlab/work/vivado/MIO_BUS.v
@@ -30,9 +30,9 @@ read_verilog -library xil_defaultlib {
   C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_regfile.v
   C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_fpga_top.v
 }
-read_ip -quiet c:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.srcs/sources_1/ip/imem/imem.xci
+read_ip -quiet C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.srcs/sources_1/ip/imem/imem.xci
 set_property used_in_implementation false [get_files -all c:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.srcs/sources_1/ip/imem/imem_ooc.xdc]
-set_property is_locked true [get_files c:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.srcs/sources_1/ip/imem/imem.xci]
+set_property is_locked true [get_files C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.srcs/sources_1/ip/imem/imem.xci]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

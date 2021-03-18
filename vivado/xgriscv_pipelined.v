@@ -21,9 +21,10 @@ module xgriscv_pipeline (
   wire memwrite;
   wire [3:0] amp;
   wire [31:0] addr, writedata, readdata;
-
+  wire [6:0] pci;
+  assign pc = {25'b0, pci};
   imem U_imem (
-      pc,
+      pci,
       instr
   );
 

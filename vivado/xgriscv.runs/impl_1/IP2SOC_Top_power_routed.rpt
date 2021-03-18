@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date             : Fri Mar 12 11:21:35 2021
+| Date             : Thu Mar 18 13:53:44 2021
 | Host             : Hoo running 64-bit major release  (build 9200)
 | Command          : report_power -file IP2SOC_Top_power_routed.rpt -pb IP2SOC_Top_power_summary_routed.pb -rpx IP2SOC_Top_power_routed.rpx
 | Design           : IP2SOC_Top
@@ -31,7 +31,7 @@ Table of Contents
 
 +--------------------------+-------+
 | Total On-Chip Power (W)  | 0.102 |
-| Dynamic (W)              | 0.005 |
+| Dynamic (W)              | 0.004 |
 | Device Static (W)        | 0.097 |
 | Effective TJA (C/W)      | 4.6   |
 | Max Ambient (C)          | 84.5  |
@@ -50,13 +50,13 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |    <0.001 |        3 |       --- |             --- |
-| Slice Logic              |    <0.001 |     2594 |       --- |             --- |
-|   LUT as Logic           |    <0.001 |     1391 |     63400 |            2.19 |
-|   Register               |    <0.001 |      528 |    126800 |            0.42 |
+| Slice Logic              |    <0.001 |     2611 |       --- |             --- |
+|   LUT as Logic           |    <0.001 |     1403 |     63400 |            2.21 |
+|   Register               |    <0.001 |      529 |    126800 |            0.42 |
 |   CARRY4                 |    <0.001 |       52 |     15850 |            0.33 |
 |   LUT as Distributed RAM |    <0.001 |      176 |     19000 |            0.93 |
+|   BUFG                   |    <0.001 |        2 |        32 |            6.25 |
 |   F7/F8 Muxes            |    <0.001 |      109 |     63400 |            0.17 |
-|   BUFG                   |    <0.001 |        1 |        32 |            3.13 |
 |   Others                 |     0.000 |       35 |       --- |             --- |
 | Signals                  |    <0.001 |     1953 |       --- |             --- |
 | I/O                      |     0.003 |       34 |       210 |           16.19 |
@@ -94,7 +94,7 @@ Table of Contents
 | User Input Data             | Confidence | Details                                                | Action                                                                                                             |
 +-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
 | Design implementation state | High       | Design is routed                                       |                                                                                                                    |
-| Clock nodes activity        | Medium     | More than 5% of clocks are missing user specification  | Provide missing clock activity with a constraint file, simulation results or by editing the "By Clock Domain" view |
+| Clock nodes activity        | Low        | User specified less than 75% of clocks                 | Provide missing clock activity with a constraint file, simulation results or by editing the "By Clock Domain" view |
 | I/O nodes activity          | Low        | More than 75% of inputs are missing user specification | Provide missing input activity with simulation results or by editing the "By Resource Type -> I/Os" view           |
 | Internal nodes activity     | Medium     | User specified less than 25% of internal nodes         | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views         |
 | Device models               | High       | Device models are Production                           |                                                                                                                    |
@@ -140,7 +140,7 @@ Table of Contents
 +------------------------------+-----------+
 | Name                         | Power (W) |
 +------------------------------+-----------+
-| IP2SOC_Top                   |     0.005 |
+| IP2SOC_Top                   |     0.004 |
 |   U_7SEG                     |    <0.001 |
 |   U_CLKDIV                   |    <0.001 |
 |   U_IM                       |    <0.001 |
@@ -179,9 +179,9 @@ Table of Contents
 |     RAM_reg_0_255_7_7        |    <0.001 |
 |     RAM_reg_0_255_8_8        |    <0.001 |
 |     RAM_reg_0_255_9_9        |    <0.001 |
-|   U_xgriscv                  |     0.002 |
+|   U_xgriscv                  |     0.001 |
 |     c                        |    <0.001 |
-|     dp                       |     0.002 |
+|     dp                       |     0.001 |
 |       alu                    |    <0.001 |
 |       cmp                    |    <0.001 |
 |       im                     |    <0.001 |

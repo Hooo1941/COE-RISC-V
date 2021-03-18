@@ -2,8 +2,8 @@
 # Vivado v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Fri Mar 12 11:16:30 2021
-# Process ID: 3692
+# Start of session at: Wed Mar 17 13:42:59 2021
+# Process ID: 21380
 # Current directory: C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/imem_synth_1
 # Command line: vivado.exe -log imem.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source imem.tcl
 # Log file: C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/imem_synth_1/imem.vds

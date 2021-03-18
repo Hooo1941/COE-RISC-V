@@ -28,7 +28,6 @@ module IP2SOC_Top(
   wire [31:0]   cpu_data_in;
   wire [31:0]   cpuseg7_data;
   wire [31:0]   reg_data;
-   
 
   imem  U_IM( // instruction memory
     .a(PC[8:2]), .spo(instr)
@@ -38,7 +37,7 @@ module IP2SOC_Top(
     .clk(Clk_CPU), 
     .we(ram_we), 
     .amp(ram_amp), 
-    .a(ram_addr), 
+    .a({23'b0, ram_addr, 2'b00}), 
     .wd(dm_din),
     .rd(dm_dout)
     );
@@ -66,19 +65,19 @@ module IP2SOC_Top(
     .ctrl(sw_i[5:0]),            //SW[5:0]
     .Data0(cpuseg7_data),
      //disp_cpudata
-    .data1({2'b0,PC[31:2]}),
+    .data1({2'b00,PC[31:2]}),
     .data2(PC),
     .data3(instr),
     .data4(cpu_data_addr),
     .data5(cpu_data_out),
     .data6(dm_dout),
-    .data7({ram_addr, 2'b00}),
+    .data7({23'b0, ram_addr, 2'b00}),
     .reg_data(reg_data),
     .seg7_data(seg7_data)
     );
 
    xgriscv  U_xgriscv(
-    .clk(clk), 
+    .clk(Clk_CPU), //change clk
     .reset(rst), 
     .pc(PC), 
     .instr(instr), 
@@ -87,7 +86,7 @@ module IP2SOC_Top(
     .daddr(cpu_data_addr), 
     .writedata(cpu_data_out), 
     .readdata(cpu_data_in)
-    );         
+    );
          
   SEG7x16 U_7SEG(
     .clk(clk), 

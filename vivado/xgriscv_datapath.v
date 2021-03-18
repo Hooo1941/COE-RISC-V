@@ -209,7 +209,8 @@ module datapath (
   wire [1:0] swhbE, lwhbE, alusrcaE, alusrcbE;
   wire [3:0] aluctrlE;
   wire flushE = loadbranch | stall;
-  floprc #(17) regE (
+  wire itypeE;
+  floprc #(18) regE (
       clk,
       reset,
       flushE,
@@ -223,7 +224,8 @@ module datapath (
         alusrcaD,
         alusrcbD,
         aluctrlD,
-        jalD
+        jalD,
+        itype
       },
       {
         memtoregE,
@@ -235,7 +237,8 @@ module datapath (
         alusrcaE,
         alusrcbE,
         aluctrlE,
-        jalE
+        jalE,
+        itypeE
       }
   );
 
@@ -338,11 +341,20 @@ module datapath (
       alusrcbE,
       srcb3E
   );  // srcb2mux
+  wire forwardcE, forwarddE;
+  wire [4:0] shamtE1;
+  mux3 #(5) shamtEmux (
+      shamtE,
+      aluoutM[4:0],  //from MEM(arith)
+      wdataW[4:0],  //from WB(load)
+      ~itypeE ? (forwardcE ? 2'b01 : (forwarddE ? 2'b10 : 2'b00)) : 2'b00,
+      shamtE1
+  );
 
   alu alu (
       srca3E,
       srcb3E,
-      shamtE,
+      shamtE1,
       aluctrlE,
       aluoutE,
       overflowE,
@@ -456,9 +468,9 @@ module datapath (
       memdataM
   );
 
-  assign forwardD1 = (rs1D == rdM) & regwriteM;
-  assign forwardD2 = (rs2D == rdM) & regwriteM;
-
+  assign forwardD1 = (rs1D == rdM) & regwriteM & ~memtoregM;
+  assign forwardD2 = (rs2D == rdM) & regwriteM & ~memtoregM;
+  assign forwardcE = (rs2E == rdM) & regwriteM & ~memtoregM;
   // MEM/WB pipeline registers
   // for control signals
   wire flushW = 0;
@@ -516,4 +528,5 @@ module datapath (
   (((rs1E == waddrW) & regwriteW) ? 2'b01 : 2'b00);
   assign forwardbE = ((rs2E == rdM) & regwriteM) ? 2'b10 :
   (((rs2E == waddrW) & regwriteW) ? 2'b01 : 2'b00);
+  assign forwarddE = (rs2E == waddrW) & regwriteW;
 endmodule
