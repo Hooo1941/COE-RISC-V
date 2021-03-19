@@ -2,8 +2,8 @@
 # Vivado v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Thu Mar 18 14:30:54 2021
-# Process ID: 11912
+# Start of session at: Fri Mar 19 09:23:31 2021
+# Process ID: 4464
 # Current directory: C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1
 # Command line: vivado.exe -log IP2SOC_Top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source IP2SOC_Top.tcl
 # Log file: C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/IP2SOC_Top.vds
@@ -12,16 +12,19 @@
 source IP2SOC_Top.tcl -notrace
 Command: synth_design -top IP2SOC_Top -part xc7a100tcsg324-1
 Starting synth_design
+WARNING: [Vivado_Tcl 4-393] The 'Synthesis' target of the following IPs are stale, please generate the output products using the generate_target or synth_ip command before running synth_design.
+C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.srcs/sources_1/ip/imem/imem.xci
+
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t-csg324'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t-csg324'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 22336 
+INFO: Helper process launched with PID 15456 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 308.449 ; gain = 73.273
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 307.703 ; gain = 73.445
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'IP2SOC_Top' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_fpga_top.v:3]
-INFO: [Synth 8-638] synthesizing module 'imem' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-11912-Hoo/realtime/imem_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'imem' (1#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-11912-Hoo/realtime/imem_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'imem' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-4464-Hoo/realtime/imem_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'imem' (1#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-4464-Hoo/realtime/imem_stub.v:6]
 INFO: [Synth 8-638] synthesizing module 'dmem' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_mem.v:59]
 INFO: [Synth 8-256] done synthesizing module 'dmem' (2#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_mem.v:59]
 INFO: [Synth 8-638] synthesizing module 'MIO_BUS' [C:/Users/Qiu/Desktop/codlab/work/vivado/MIO_BUS.v:24]
@@ -143,7 +146,7 @@ WARNING: [Synth 8-3331] design dmem has unconnected port a[12]
 WARNING: [Synth 8-3331] design dmem has unconnected port a[1]
 WARNING: [Synth 8-3331] design dmem has unconnected port a[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 348.527 ; gain = 113.352
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 348.027 ; gain = 113.770
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -153,15 +156,15 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 348.527 ; gain = 113.352
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 348.027 ; gain = 113.770
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-11912-Hoo/dcp3/imem_in_context.xdc] for cell 'U_IM'
-Finished Parsing XDC File [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-11912-Hoo/dcp3/imem_in_context.xdc] for cell 'U_IM'
+Parsing XDC File [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-4464-Hoo/dcp3/imem_in_context.xdc] for cell 'U_IM'
+Finished Parsing XDC File [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-4464-Hoo/dcp3/imem_in_context.xdc] for cell 'U_IM'
 Parsing XDC File [C:/Users/Qiu/Desktop/codlab/work/vivado/constraints/Nexys4DDR_CPU.xdc]
 Finished Parsing XDC File [C:/Users/Qiu/Desktop/codlab/work/vivado/constraints/Nexys4DDR_CPU.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Qiu/Desktop/codlab/work/vivado/constraints/Nexys4DDR_CPU.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/IP2SOC_Top_propImpl.xdc].
@@ -171,23 +174,23 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 755.129 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 755.375 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 755.129 ; gain = 519.953
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 755.375 ; gain = 521.117
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 755.129 ; gain = 519.953
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 755.375 ; gain = 521.117
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property DONT_TOUCH = true for U_IM. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 755.129 ; gain = 519.953
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 755.375 ; gain = 521.117
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "aluctrl" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "aluctrl" won't be mapped to RAM because it is too sparse
@@ -197,7 +200,7 @@ WARNING: [Synth 8-6014] Unused sequential element cnt_reg was removed.  [C:/User
 WARNING: [Synth 8-6014] Unused sequential element clkdiv_reg was removed.  [C:/Users/Qiu/Desktop/codlab/work/vivado/CLK_DIV.v:32]
 WARNING: [Synth 8-327] inferring latch for variable 'aluctrl_reg' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_controller.v:153]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 755.129 ; gain = 519.953
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 755.375 ; gain = 521.117
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -525,7 +528,7 @@ WARNING: [Synth 8-3332] Sequential element (U_xgriscv/dp/pr4W/q_reg[29]) is unus
 WARNING: [Synth 8-3332] Sequential element (U_xgriscv/dp/pr4W/q_reg[28]) is unused and will be removed from module IP2SOC_Top.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 755.129 ; gain = 519.953
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:26 . Memory (MB): peak = 755.375 ; gain = 521.117
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -553,13 +556,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 755.129 ; gain = 519.953
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 755.375 ; gain = 521.117
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 755.129 ; gain = 519.953
+Finished Timing Optimization : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 755.375 ; gain = 521.117
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -571,7 +574,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 771.672 ; gain = 536.496
+Finished Technology Mapping : Time (s): cpu = 00:00:37 ; elapsed = 00:00:37 . Memory (MB): peak = 781.941 ; gain = 547.684
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -595,7 +598,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 771.672 ; gain = 536.496
+Finished IO Insertion : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 781.941 ; gain = 547.684
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -608,7 +611,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 771.672 ; gain = 536.496
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:38 ; elapsed = 00:00:38 . Memory (MB): peak = 781.941 ; gain = 547.684
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -620,25 +623,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 771.672 ; gain = 536.496
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:38 ; elapsed = 00:00:38 . Memory (MB): peak = 781.941 ; gain = 547.684
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 771.672 ; gain = 536.496
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:38 ; elapsed = 00:00:38 . Memory (MB): peak = 781.941 ; gain = 547.684
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 771.672 ; gain = 536.496
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:38 ; elapsed = 00:00:38 . Memory (MB): peak = 781.941 ; gain = 547.684
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 771.672 ; gain = 536.496
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:38 ; elapsed = 00:00:38 . Memory (MB): peak = 781.941 ; gain = 547.684
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -716,11 +719,11 @@ Report Instance Areas:
 |34    |      rf       |regfile                   |    50|
 +------+---------------+--------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 771.672 ; gain = 536.496
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:38 ; elapsed = 00:00:38 . Memory (MB): peak = 781.941 ; gain = 547.684
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 144 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:26 ; elapsed = 00:00:32 . Memory (MB): peak = 771.672 ; gain = 129.895
-Synthesis Optimization Complete : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 771.672 ; gain = 536.496
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:00:32 . Memory (MB): peak = 781.941 ; gain = 140.336
+Synthesis Optimization Complete : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 781.941 ; gain = 547.684
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 124 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -733,9 +736,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAM256X1S => RAM256X1S (MUXF7, MUXF7, MUXF8, RAMS64E, RAMS64E, RAMS64E, RAMS64E): 32 instances
   RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 18 instances
 
-79 Infos, 156 Warnings, 0 Critical Warnings and 0 Errors encountered.
+79 Infos, 157 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:40 ; elapsed = 00:00:43 . Memory (MB): peak = 771.672 ; gain = 542.109
+synth_design: Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 781.941 ; gain = 552.602
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/IP2SOC_Top.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.030 . Memory (MB): peak = 771.672 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Thu Mar 18 14:31:41 2021...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.027 . Memory (MB): peak = 781.941 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Fri Mar 19 09:24:17 2021...

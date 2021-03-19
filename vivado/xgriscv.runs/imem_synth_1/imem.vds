@@ -2,56 +2,12 @@
 # Vivado v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Wed Mar 17 13:42:59 2021
-# Process ID: 21380
+# Start of session at: Fri Mar 19 09:24:37 2021
+# Process ID: 14092
 # Current directory: C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/imem_synth_1
 # Command line: vivado.exe -log imem.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source imem.tcl
 # Log file: C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/imem_synth_1/imem.vds
 # Journal file: C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/imem_synth_1\vivado.jou
 #-----------------------------------------------------------
 source imem.tcl -notrace
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 308.277 ; gain = 79.102
-INFO: [Synth 8-638] synthesizing module 'imem' [c:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.srcs/sources_1/ip/imem/synth/imem.vhd:66]
-INFO: [Synth 8-256] done synthesizing module 'imem' (4#1) [c:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.srcs/sources_1/ip/imem/synth/imem.vhd:66]
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 362.984 ; gain = 133.809
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 362.984 ; gain = 133.809
-INFO: [Device 21-403] Loading part xc7a100tcsg324-1
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 651.230 ; gain = 0.000
-Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 651.230 ; gain = 422.055
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 651.230 ; gain = 422.055
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 651.230 ; gain = 422.055
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 651.230 ; gain = 422.055
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 651.230 ; gain = 422.055
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
-
-ROM:
-+------------+------------+---------------+----------------+
-|Module Name | RTL Object | Depth x Width | Implemented As | 
-+------------+------------+---------------+----------------+
-|rom         | rom[127]   | 128x32        | LUT            | 
-+------------+------------+---------------+----------------+
-
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 698.020 ; gain = 468.844
-Finished Timing Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 698.020 ; gain = 468.844
-Finished Technology Mapping : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 709.164 ; gain = 479.988
-Finished IO Insertion : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 709.164 ; gain = 479.988
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 709.164 ; gain = 479.988
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 709.164 ; gain = 479.988
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 709.164 ; gain = 479.988
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 709.164 ; gain = 479.988
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 709.164 ; gain = 479.988
-
-Report Cell Usage: 
-+------+-----+------+
-|      |Cell |Count |
-+------+-----+------+
-|1     |LUT2 |    28|
-|2     |LUT6 |    28|
-+------+-----+------+
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 709.164 ; gain = 479.988
-synth_design: Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 719.719 ; gain = 490.543
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP imem, cache-ID = 78920664c6579115.

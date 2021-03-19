@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date         : Thu Mar 18 14:33:05 2021
+| Date         : Fri Mar 19 09:25:20 2021
 | Host         : Hoo running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file IP2SOC_Top_control_sets_placed.rpt
 | Design       : IP2SOC_Top
@@ -23,7 +23,7 @@ Table of Contents
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
 | Number of unique control sets                            |    19 |
-| Unused register locations in slices containing registers |    55 |
+| Unused register locations in slices containing registers |    51 |
 +----------------------------------------------------------+-------+
 
 
@@ -34,10 +34,10 @@ Table of Contents
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | No           | No                    | No                     |               4 |            1 |
-| No           | No                    | Yes                    |             398 |          197 |
+| No           | No                    | Yes                    |             401 |          200 |
 | No           | Yes                   | No                     |               0 |            0 |
 | Yes          | No                    | No                     |               0 |            0 |
-| Yes          | No                    | Yes                    |             127 |           63 |
+| Yes          | No                    | Yes                    |             128 |           63 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
@@ -52,20 +52,20 @@ Table of Contents
 |  U_xgriscv/dp/pr1D/q_reg[2]_0[0]    |                                        |                          |                1 |              4 |
 |  clk_IBUF_BUFG                      | U_xgriscv/dp/pr1M/disp_data_reg[31][0] | U_xgriscv/dp/pr8E/AR[0]  |                9 |             11 |
 |  Clk_CPU_BUFG                       | U_xgriscv/dp/pr1D/E[0]                 | U_xgriscv/dp/pr8E/AR[0]  |                6 |             12 |
-|  Clk_CPU_BUFG                       | U_xgriscv/dp/pr1D/q_reg[0]_16[0]       | U_xgriscv/dp/pr2W/AR[0]  |               10 |             17 |
-|  Clk_CPU_BUFG                       | U_xgriscv/dp/pr1D/E[0]                 | U_xgriscv/dp/pcreg/AR[0] |                9 |             20 |
-|  clk_IBUF_BUFG                      | U_xgriscv/dp/pr1M/disp_data_reg[31][0] | U_xgriscv/dp/pcreg/AR[0] |               14 |             21 |
+|  Clk_CPU_BUFG                       | U_xgriscv/dp/pr1D/q_reg[0]_16[0]       | U_xgriscv/dp/pr2W/AR[0]  |               10 |             18 |
+|  Clk_CPU_BUFG                       | U_xgriscv/dp/pr1D/E[0]                 | U_xgriscv/dp/pcreg/AR[0] |                8 |             20 |
+|  clk_IBUF_BUFG                      | U_xgriscv/dp/pr1M/disp_data_reg[31][0] | U_xgriscv/dp/pcreg/AR[0] |               17 |             21 |
 |  clk_IBUF_BUFG                      |                                        | U_xgriscv/dp/pr1E/AR[0]  |                7 |             26 |
 |  Clk_CPU_BUFG                       | U_xgriscv/dp/regM/q_reg[12]            |                          |                8 |             32 |
 |  Clk_CPU_BUFG                       | U_xgriscv/dp/regM/q_reg[4]_0           |                          |                8 |             32 |
 |  Clk_CPU_BUFG                       | U_xgriscv/dp/pr1M/q_reg[20]_0          |                          |                8 |             32 |
 |  Clk_CPU_BUFG                       | U_xgriscv/dp/pr1M/q_reg[28]_0          |                          |                8 |             32 |
-|  Clk_CPU_BUFG                       |                                        | U_xgriscv/dp/pr1E/AR[0]  |               32 |             46 |
-|  Clk_CPU_BUFG                       | U_xgriscv/dp/pr1D/q_reg[0]_16[0]       | U_xgriscv/dp/pr1E/AR[0]  |               15 |             46 |
+|  Clk_CPU_BUFG                       |                                        | U_xgriscv/dp/pr1E/AR[0]  |               31 |             46 |
+|  Clk_CPU_BUFG                       | U_xgriscv/dp/pr1D/q_reg[0]_16[0]       | U_xgriscv/dp/pr1E/AR[0]  |               13 |             46 |
 |  clk_IBUF_BUFG                      |                                        | U_7SEG/rst               |               18 |             54 |
-|  Clk_CPU_BUFG                       |                                        | U_xgriscv/dp/pcreg/AR[0] |               40 |             74 |
+|  Clk_CPU_BUFG                       |                                        | U_xgriscv/dp/pcreg/AR[0] |               47 |             77 |
 |  Clk_CPU_BUFG                       |                                        | U_xgriscv/dp/pr8E/AR[0]  |               48 |             95 |
-|  Clk_CPU_BUFG                       |                                        | U_xgriscv/dp/pr2W/AR[0]  |               51 |            100 |
+|  Clk_CPU_BUFG                       |                                        | U_xgriscv/dp/pr2W/AR[0]  |               48 |            100 |
 |  U_CLKDIV/i_data_store_reg[31]_BUFG | U_xgriscv/dp/pr3W/p_0_in               |                          |               18 |            144 |
 +-------------------------------------+----------------------------------------+--------------------------+------------------+----------------+
 
