@@ -58,17 +58,6 @@ module flopenrc #(parameter WIDTH = 8)
     else if (en)    q <= d;
 endmodule
 
-module flopenr #(parameter WIDTH = 8)
-                (input                  clk, reset,
-                 input                  en,
-                 input      [WIDTH-1:0] d, 
-                 output reg [WIDTH-1:0] q);
- 
-  always @(posedge clk, posedge reset)
-    if      (reset) q <= 0;
-    else if (en)    q <=  d;
-endmodule
-
 module mux2 #(parameter WIDTH = 8)
              (input  [WIDTH-1:0] d0, d1, 
               input              s, 
@@ -98,42 +87,6 @@ module mux4 #(parameter WIDTH = 8)
          2'b10: y <= d2;
          2'b11: y <= d3;
       endcase
-	end
-endmodule
-
-module mux5 #(parameter WIDTH = 8)
-             (input		[WIDTH-1:0] d0, d1, d2, d3, d4,
-              input		[2:0]       s, 
-              output reg	[WIDTH-1:0] y);
-
-	always @( * )
-	begin
-      case(s)
-	    3'b000: y <= d0;
-	    3'b001: y <= d1;
-	    3'b010: y <= d2;
-	    3'b011: y <= d3;
-	    3'b100: y <= d4;
-      endcase
-//    $display("mux5 d0=%h, d1=%h, d2=%h, d3=%h, d4=%h, s=%b, y=%h", d0,d1,d2,d3,d4,s,y);
-    end  
-endmodule
-
-module mux6 #(parameter WIDTH = 8)
-           (input  [WIDTH-1:0] 	d0, d1, d2, d3, d4, d5,
-            input  [2:0] 		s,
-         	  output reg [WIDTH-1:0]	y);
-
-	always@( * )
-	begin
-	  case(s)
-		3'b000: y <= d0;
-		3'b001: y <= d1;
-		3'b010: y <= d2;
-		3'b011: y <= d3;
-		3'b100: y <= d4;
-		3'b101: y <= d5;
-	  endcase
 	end
 endmodule
 
@@ -175,6 +128,9 @@ module cmp(
 
   assign zero = (a == b);
   assign lt = (!op_unsigned & ($signed(a) < $signed(b))) | (op_unsigned & (a < b));
+  // wire ltu = a < b;
+  // wire lts = (a[`XLEN-1] == a[`XLEN-1]) ? ltu : (b[`XLEN-1] < a[`XLEN-1]);
+  // assign lt = (~op_unsigned & lts) | (op_unsigned & ltu);
 endmodule
 
 module ampattern (input [1:0] addr, input [1:0] swhb, output reg [3:0] amp); //amp: access memory pattern

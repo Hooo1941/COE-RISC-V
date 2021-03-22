@@ -73,11 +73,10 @@ module datapath (
   pcenr pcreg (
       clk,
       reset,
-      en,
+      ~stall,
       nextpcF,
       pcF
   );
-  assign en = ~stall;
   addr_adder pcadder1 (
       pcF,
       `ADDR_SIZE'b100,
@@ -87,33 +86,33 @@ module datapath (
   ///////////////////////////////////////////////////////////////////////////////////
   // IF/ID pipeline registers
   wire [`INSTR_SIZE-1:0] instrD;
-  wire [`ADDR_SIZE-1:0] pcD, pcplus4D;
+  wire [`ADDR_SIZE-1:0] pcD;
   wire flushD = ((branchT | jalD) & ~stall) | loadbranch;
 
-  flopenrc #(`INSTR_SIZE) pr1D (
-      clk,
-      reset,
-      en,
-      flushD,
-      instrF,
-      instrD
-  );  // instruction
-  flopenrc #(`ADDR_SIZE) pr2D (
-      clk,
-      reset,
-      en,
-      flushD,
-      pcF,
-      pcD
-  );  // pc
-  flopenrc #(`ADDR_SIZE) pr3D (
-      clk,
-      reset,
-      en,
-      flushD,
-      pcplus4F,
-      pcplus4D
-  );  // pc+4
+//   flopenrc #(`INSTR_SIZE) pr1D (
+//       clk,
+//       reset,
+//       ~stall,
+//       flushD,
+//       instrF,
+//       instrD
+//   );  // instruction
+//   flopenrc #(`ADDR_SIZE) pr2D (
+//       clk,
+//       reset,
+//       ~stall,
+//       flushD,
+//       pcF,
+//       pcD
+//   );  // pc
+  flopenrc #(`INSTR_SIZE+`ADDR_SIZE) prD (
+    clk,
+    reset,
+    ~stall,
+    flushD,
+    {instrF, pcF},
+    {instrD, pcD}
+  ); // 0.2ns
   mux2 #(`ADDR_SIZE) pcsrcmux2 (
       nextpcF1,
       pcD,
@@ -250,7 +249,7 @@ module datapath (
   wire [`XLEN-1:0] srca1E, srcb1E, immoutE, srca2E, srca3E, srcb2E, srcb3E, aluoutE;
   wire [`RFIDX_WIDTH-1:0] rs1E, rs2E, rdE;
   wire [4:0] shamtE;
-  wire [`ADDR_SIZE-1:0] pcE, pcplus4E;
+  wire [`ADDR_SIZE-1:0] pcE;
   floprc #(`XLEN) pr1E (
       clk,
       reset,
@@ -307,13 +306,6 @@ module datapath (
       pcD,
       pcE
   );  //pc
-  floprc #(`ADDR_SIZE) pr9E (
-      clk,
-      reset,
-      flushD,
-      pcplus4D,
-      pcplus4E
-  );  // pc+4
 
   // execute stage logic
   wire [1:0] forwardaE, forwardbE;
@@ -385,7 +377,6 @@ module datapath (
 
   // for data
   wire [`RFIDX_WIDTH-1:0] rs2M, rdM;
-  wire [`ADDR_SIZE-1:0] pcplus4M;
   wire [`XLEN-1:0] writedataM1;
   floprc #(`XLEN) pr1M (
       clk,
@@ -408,13 +399,6 @@ module datapath (
       rdE,
       rdM
   );
-  floprc #(`ADDR_SIZE) pr4M (
-      clk,
-      reset,
-      flushM,
-      pcplus4E,
-      pcplus4M
-  );  // pc+4
   floprc #(`RFIDX_WIDTH) pr5M (
       clk,
       reset,
@@ -487,7 +471,7 @@ module datapath (
   );
 
   // for data
-  wire [`XLEN-1:0] aluoutW, memdataW, wdata0W, pcplus4W;
+  wire [`XLEN-1:0] aluoutW, memdataW, wdata0W;
   wire forwardM = (waddrW == rs2M) & regwriteW;
 
   mux2 #(32) forwardmemmux (
@@ -518,13 +502,7 @@ module datapath (
       rdM,
       waddrW
   );
-  floprc #(`ADDR_SIZE) pr4W (
-      clk,
-      reset,
-      flushW,
-      pcplus4M,
-      pcplus4W
-  );  // pc+4, for JAL(store pc+4 to rd)
+
 
   // write-back stage logic
   assign wdataW = memtoregW ? memdataW : aluoutW;

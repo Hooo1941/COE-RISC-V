@@ -39,7 +39,7 @@ module regfile (
       $display("x%d = %h", wa3, wd3);
 `endif
     end
-  assign reg_data = (ra3 != 0) ? rf[ra3] : 0;
-  assign rd1 = (ra1 != 0) ? rf[ra1] : 0;
-  assign rd2 = (ra2 != 0) ? rf[ra2] : 0;
+  assign reg_data = rf[ra3];
+  assign rd1 = rf[ra1];
+  assign rd2 = rf[ra2];
 endmodule

@@ -10,48 +10,48 @@
 // ====================================================================
 
 `include "xgriscv_defines.v"
-module xgriscv_pipeline (
-    clk,
-    reset
-);
-  input clk, reset;
+// module xgriscv_pipeline (
+//     clk,
+//     reset
+// );
+//   input clk, reset;
 
-  wire [31:0] instr;
-  wire [31:0] pc;
-  wire memwrite;
-  wire [3:0] amp;
-  wire [31:0] addr, writedata, readdata;
-  wire [6:0] pci;
-  assign pc = {25'b0, pci};
-  imem U_imem (
-      pci,
-      instr
-  );
+//   wire [31:0] instr;
+//   wire [31:0] pc;
+//   wire memwrite;
+//   wire [3:0] amp;
+//   wire [31:0] addr, writedata, readdata;
+//   wire [6:0] pci;
+//   assign pc = {25'b0, pci};
+//   imem U_imem (
+//       pci,
+//       instr
+//   );
 
-  dmem U_dmem (
-      clk,
-      memwrite,
-      amp,
-      addr,
-      writedata,
-      readdata
-  );
+//   dmem U_dmem (
+//       clk,
+//       memwrite,
+//       amp,
+//       addr,
+//       writedata,
+//       readdata
+//   );
 
-  xgriscv U_xgriscv (
-      clk,
-      reset,
-      pc,
-      instr,
-      memwrite,
-      amp,
-      addr,
-      writedata,
-      readdata,
-      ra3,
-      reg_data
-  );
+//   xgriscv U_xgriscv (
+//       clk,
+//       reset,
+//       pc,
+//       instr,
+//       memwrite,
+//       amp,
+//       addr,
+//       writedata,
+//       readdata,
+//       ra3,
+//       reg_data
+//   );
 
-endmodule
+// endmodule
 
 // xgriscv: a pipelined riscv processor
 module xgriscv (

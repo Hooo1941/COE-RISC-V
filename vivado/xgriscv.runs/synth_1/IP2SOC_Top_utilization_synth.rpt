@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date         : Fri Mar 19 09:24:17 2021
+| Date         : Mon Mar 22 15:26:11 2021
 | Host         : Hoo running 64-bit major release  (build 9200)
 | Command      : report_utilization -file IP2SOC_Top_utilization_synth.rpt -pb IP2SOC_Top_utilization_synth.pb
 | Design       : IP2SOC_Top
@@ -30,13 +30,13 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                | 1634 |     0 |     63400 |  2.58 |
-|   LUT as Logic             | 1434 |     0 |     63400 |  2.26 |
+| Slice LUTs*                | 1618 |     0 |     63400 |  2.55 |
+|   LUT as Logic             | 1418 |     0 |     63400 |  2.24 |
 |   LUT as Memory            |  200 |     0 |     19000 |  1.05 |
 |     LUT as Distributed RAM |  200 |     0 |           |       |
 |     LUT as Shift Register  |    0 |     0 |           |       |
-| Slice Registers            |  533 |     0 |    126800 |  0.42 |
-|   Register as Flip Flop    |  529 |     0 |    126800 |  0.42 |
+| Slice Registers            |  507 |     0 |    126800 |  0.40 |
+|   Register as Flip Flop    |  503 |     0 |    126800 |  0.40 |
 |   Register as Latch        |    4 |     0 |    126800 | <0.01 |
 | F7 Muxes                   |  106 |     0 |     31700 |  0.33 |
 | F8 Muxes                   |   35 |     0 |     15850 |  0.22 |
@@ -57,7 +57,7 @@ Table of Contents
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 24    |          Yes |           - |          Set |
-| 509   |          Yes |           - |        Reset |
+| 483   |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
 | 0     |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
@@ -114,7 +114,7 @@ Table of Contents
 +------------+------+-------+-----------+-------+
 |  Site Type | Used | Fixed | Available | Util% |
 +------------+------+-------+-----------+-------+
-| BUFGCTRL   |    2 |     0 |        32 |  6.25 |
+| BUFGCTRL   |    0 |     0 |        32 |  0.00 |
 | BUFIO      |    0 |     0 |        24 |  0.00 |
 | MMCME2_ADV |    0 |     0 |         6 |  0.00 |
 | PLLE2_ADV  |    0 |     0 |         6 |  0.00 |
@@ -148,35 +148,35 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT6     |  779 |                 LUT |
-| FDCE     |  505 |        Flop & Latch |
-| LUT4     |  303 |                 LUT |
-| LUT5     |  275 |                 LUT |
+| LUT6     |  775 |                 LUT |
+| FDCE     |  479 |        Flop & Latch |
+| LUT5     |  272 |                 LUT |
+| LUT4     |  244 |                 LUT |
+| LUT3     |  179 |                 LUT |
 | RAMS64E  |  128 |  Distributed Memory |
-| LUT3     |  124 |                 LUT |
-| LUT2     |  119 |                 LUT |
+| LUT2     |  123 |                 LUT |
 | RAMD32   |  108 |  Distributed Memory |
 | MUXF7    |  106 |               MuxFx |
-| LUT1     |   78 |                 LUT |
-| CARRY4   |   52 |          CarryLogic |
+| LUT1     |   52 |                 LUT |
+| CARRY4   |   45 |          CarryLogic |
 | RAMS32   |   36 |  Distributed Memory |
 | MUXF8    |   35 |               MuxFx |
 | FDPE     |   24 |        Flop & Latch |
 | IBUF     |   18 |                  IO |
 | OBUF     |   16 |                  IO |
 | LDCE     |    4 |        Flop & Latch |
-| BUFG     |    2 |               Clock |
 +----------+------+---------------------+
 
 
 8. Black Boxes
 --------------
 
-+----------+------+
-| Ref Name | Used |
-+----------+------+
-| imem     |    1 |
-+----------+------+
++-----------+------+
+|  Ref Name | Used |
++-----------+------+
+| imem      |    1 |
+| clk_wiz_0 |    1 |
++-----------+------+
 
 
 9. Instantiated Netlists

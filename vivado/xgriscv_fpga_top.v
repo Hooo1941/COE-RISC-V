@@ -89,9 +89,20 @@ module IP2SOC_Top(
     .ra3(sw_i[4:0]),
     .reg_data(reg_data)
     );
-         
+
+  wire clk100;
+  clk_wiz_0 clkwiz(
+    .clk_in1(clk),
+    .reset(rst),
+    .clk_out1(clk100),
+    .clk_out2(Clk_CPU)
+  );
+
+  // assign disp_seg_o = 0;
+  // assign disp_an_o = 0;
+
   SEG7x16 U_7SEG(
-    .clk(clk), 
+    .clk(Clk_CPU), 
     .rst(rst),
     .cs(1'b1),
     .i_data(seg7_data),
@@ -99,11 +110,12 @@ module IP2SOC_Top(
     .o_sel(disp_an_o)
     );
 
+/*
   CLK_DIV U_CLKDIV( 
     .clk(clk),
     .rst(rst),
     .SW15(sw_i[15]),
     .Clk_CPU(Clk_CPU)
     );
-
+*/
 endmodule
