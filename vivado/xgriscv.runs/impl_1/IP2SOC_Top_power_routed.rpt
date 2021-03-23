@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date             : Mon Mar 22 15:29:34 2021
+| Date             : Mon Mar 22 23:43:20 2021
 | Host             : Hoo running 64-bit major release  (build 9200)
 | Command          : report_power -file IP2SOC_Top_power_routed.rpt -pb IP2SOC_Top_power_summary_routed.pb -rpx IP2SOC_Top_power_routed.rpx
 | Design           : IP2SOC_Top
@@ -30,12 +30,12 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.217 |
-| Dynamic (W)              | 0.119 |
-| Device Static (W)        | 0.097 |
+| Total On-Chip Power (W)  | 0.243 |
+| Dynamic (W)              | 0.146 |
+| Device Static (W)        | 0.098 |
 | Effective TJA (C/W)      | 4.6   |
-| Max Ambient (C)          | 84.0  |
-| Junction Temperature (C) | 26.0  |
+| Max Ambient (C)          | 83.9  |
+| Junction Temperature (C) | 26.1  |
 | Confidence Level         | Low   |
 | Setting File             | ---   |
 | Simulation Activity File | ---   |
@@ -49,19 +49,19 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.004 |        6 |       --- |             --- |
-| Slice Logic              |     0.012 |     2649 |       --- |             --- |
-|   LUT as Logic           |     0.011 |     1423 |     63400 |            2.24 |
+| Clocks                   |     0.004 |        8 |       --- |             --- |
+| Slice Logic              |     0.012 |     2634 |       --- |             --- |
+|   LUT as Logic           |     0.011 |     1405 |     63400 |            2.22 |
 |   LUT as Distributed RAM |    <0.001 |      200 |     19000 |            1.05 |
 |   Register               |    <0.001 |      503 |    126800 |            0.40 |
-|   CARRY4                 |    <0.001 |       45 |     15850 |            0.28 |
+|   CARRY4                 |    <0.001 |       41 |     15850 |            0.26 |
 |   F7/F8 Muxes            |    <0.001 |      141 |     63400 |            0.22 |
 |   Others                 |     0.000 |       35 |       --- |             --- |
-| Signals                  |     0.020 |     1914 |       --- |             --- |
-| MMCM                     |     0.060 |        1 |         6 |           16.67 |
-| I/O                      |     0.023 |       34 |       210 |           16.19 |
-| Static Power             |     0.097 |          |           |                 |
-| Total                    |     0.217 |          |           |                 |
+| Signals                  |     0.016 |     1915 |       --- |             --- |
+| MMCM                     |     0.090 |        1 |         6 |           16.67 |
+| I/O                      |     0.024 |       34 |       210 |           16.19 |
+| Static Power             |     0.098 |          |           |                 |
+| Total                    |     0.243 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,9 +71,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.052 |       0.037 |      0.015 |
-| Vccaux    |       1.800 |     0.052 |       0.034 |      0.018 |
-| Vcco33    |       3.300 |     0.010 |       0.006 |      0.004 |
+| Vccint    |       1.000 |     0.048 |       0.033 |      0.015 |
+| Vccaux    |       1.800 |     0.069 |       0.051 |      0.018 |
+| Vcco33    |       3.300 |     0.011 |       0.007 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -124,14 +124,16 @@ Table of Contents
 2.2 Clock Constraints
 ---------------------
 
-+--------------------+--------------------------------+-----------------+
-| Clock              | Domain                         | Constraint (ns) |
-+--------------------+--------------------------------+-----------------+
-| clk_out2_clk_wiz_0 | clkwiz/inst/clk_out2_clk_wiz_0 |            15.4 |
-| clkfbout_clk_wiz_0 | clkwiz/inst/clkfbout_clk_wiz_0 |            10.0 |
-| sys_clk_pin        | clk                            |           100.0 |
-| sys_clk_pin        | clk_IBUF_BUFG                  |           100.0 |
-+--------------------+--------------------------------+-----------------+
++----------------------+--------------------------------+-----------------+
+| Clock                | Domain                         | Constraint (ns) |
++----------------------+--------------------------------+-----------------+
+| clk                  | clk                            |            10.0 |
+| clk_out2_clk_wiz_0   | clkwiz/inst/clk_out2_clk_wiz_0 |            14.3 |
+| clk_out2_clk_wiz_0_1 | clkwiz/inst/clk_out2_clk_wiz_0 |            14.3 |
+| clkfbout_clk_wiz_0   | clkwiz/inst/clkfbout_clk_wiz_0 |            10.0 |
+| clkfbout_clk_wiz_0_1 | clkwiz/inst/clkfbout_clk_wiz_0 |            10.0 |
+| sys_clk_pin          | clk                            |            10.0 |
++----------------------+--------------------------------+-----------------+
 
 
 3. Detailed Reports
@@ -143,7 +145,7 @@ Table of Contents
 +------------------------------+-----------+
 | Name                         | Power (W) |
 +------------------------------+-----------+
-| IP2SOC_Top                   |     0.119 |
+| IP2SOC_Top                   |     0.146 |
 |   U_7SEG                     |     0.001 |
 |   U_IM                       |    <0.001 |
 |     U0                       |    <0.001 |
@@ -181,9 +183,9 @@ Table of Contents
 |     RAM_reg_0_255_7_7        |    <0.001 |
 |     RAM_reg_0_255_8_8        |    <0.001 |
 |     RAM_reg_0_255_9_9        |    <0.001 |
-|   U_xgriscv                  |     0.032 |
+|   U_xgriscv                  |     0.028 |
 |     c                        |    <0.001 |
-|     dp                       |     0.032 |
+|     dp                       |     0.028 |
 |       alu                    |    <0.001 |
 |       cmp                    |    <0.001 |
 |       im                     |    <0.001 |
@@ -191,10 +193,10 @@ Table of Contents
 |       pcreg                  |     0.001 |
 |       pr1E                   |    <0.001 |
 |       pr1M                   |     0.004 |
-|       pr1W                   |     0.002 |
+|       pr1W                   |    <0.001 |
 |       pr2E                   |    <0.001 |
-|       pr2M                   |     0.002 |
-|       pr2W                   |     0.004 |
+|       pr2M                   |    <0.001 |
+|       pr2W                   |     0.003 |
 |       pr3E                   |    <0.001 |
 |       pr3M                   |    <0.001 |
 |       pr3W                   |    <0.001 |
@@ -205,7 +207,7 @@ Table of Contents
 |       pr7E                   |    <0.001 |
 |       pr8E                   |     0.002 |
 |       prD                    |     0.004 |
-|       regE                   |     0.005 |
+|       regE                   |     0.004 |
 |       regM                   |    <0.001 |
 |       regW                   |    <0.001 |
 |       rf                     |     0.002 |
@@ -227,8 +229,8 @@ Table of Contents
 |         rf_reg_r3_0_31_24_29 |    <0.001 |
 |         rf_reg_r3_0_31_30_31 |    <0.001 |
 |         rf_reg_r3_0_31_6_11  |    <0.001 |
-|   clkwiz                     |     0.061 |
-|     inst                     |     0.061 |
+|   clkwiz                     |     0.090 |
+|     inst                     |     0.090 |
 +------------------------------+-----------+
 
 

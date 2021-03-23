@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date         : Mon Mar 22 15:29:33 2021
+| Date         : Mon Mar 22 23:43:18 2021
 | Host         : Hoo running 64-bit major release  (build 9200)
 | Command      : report_methodology -file IP2SOC_Top_methodology_drc_routed.rpt -rpx IP2SOC_Top_methodology_drc_routed.rpx
 | Design       : IP2SOC_Top
@@ -23,18 +23,15 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 70
+             Violations found: 66
 +-----------+----------+-----------------------------------------------------------+------------+
 | Rule      | Severity | Description                                               | Violations |
 +-----------+----------+-----------------------------------------------------------+------------+
 | SYNTH-5   | Warning  | Mapped onto distributed RAM because of timing constraints | 32         |
-| TIMING-4  | Warning  | Invalid primary clock redefinition on a clock tree        | 1          |
 | TIMING-6  | Warning  | No common primary clock between related clocks            | 2          |
-| TIMING-7  | Warning  | No common node between related clocks                     | 2          |
 | TIMING-17 | Warning  | Non-clocked sequential cell                               | 3          |
 | TIMING-18 | Warning  | Missing input or output delay                             | 25         |
 | TIMING-20 | Warning  | Non-clocked latch                                         | 4          |
-| TIMING-27 | Warning  | Invalid primary clock on hierarchical pin                 | 1          |
 +-----------+----------+-----------------------------------------------------------+------------+
 
 2. REPORT DETAILS
@@ -199,29 +196,14 @@ Mapped onto distributed RAM because of timing constraints
 The instance U_dmem/RAM_reg_0_255_9_9 is implemented as distributed LUT RAM for the following reason: The timing constraints suggest that the chosen mapping will yield a better timing.
 Related violations: <none>
 
-TIMING-4#1 Warning
-Invalid primary clock redefinition on a clock tree  
-Invalid clock redefinition on a clock tree. The primary clock clkwiz/inst/clk_in1 is defined downstream of clock sys_clk_pin and overrides its insertion delay and/or waveform definition
-Related violations: <none>
-
 TIMING-6#1 Warning
 No common primary clock between related clocks  
-The clocks clk_out2_clk_wiz_0 and sys_clk_pin are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_out2_clk_wiz_0] -to [get_clocks sys_clk_pin]
+The clocks clk_out2_clk_wiz_0 and clk_out2_clk_wiz_0_1 are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_out2_clk_wiz_0] -to [get_clocks clk_out2_clk_wiz_0_1]
 Related violations: <none>
 
 TIMING-6#2 Warning
 No common primary clock between related clocks  
-The clocks sys_clk_pin and clk_out2_clk_wiz_0 are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks sys_clk_pin] -to [get_clocks clk_out2_clk_wiz_0]
-Related violations: <none>
-
-TIMING-7#1 Warning
-No common node between related clocks  
-The clocks clk_out2_clk_wiz_0 and sys_clk_pin are related (timed together) but they have no common node. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_out2_clk_wiz_0] -to [get_clocks sys_clk_pin]
-Related violations: <none>
-
-TIMING-7#2 Warning
-No common node between related clocks  
-The clocks sys_clk_pin and clk_out2_clk_wiz_0 are related (timed together) but they have no common node. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks sys_clk_pin] -to [get_clocks clk_out2_clk_wiz_0]
+The clocks clk_out2_clk_wiz_0_1 and clk_out2_clk_wiz_0 are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_out2_clk_wiz_0_1] -to [get_clocks clk_out2_clk_wiz_0]
 Related violations: <none>
 
 TIMING-17#1 Warning
@@ -241,7 +223,7 @@ Related violations: <none>
 
 TIMING-18#1 Warning
 Missing input or output delay  
-An input delay is missing on rstn relative to clock(s) VIRTUAL_clk_out2_clk_wiz_0 sys_clk_pin 
+An input delay is missing on rstn relative to clock(s) VIRTUAL_clk_out2_clk_wiz_0 
 Related violations: <none>
 
 TIMING-18#2 Warning
@@ -382,11 +364,6 @@ Related violations: <none>
 TIMING-20#4 Warning
 Non-clocked latch  
 The latch U_xgriscv/c/aluctrl_reg[3] cannot be properly analyzed as its control pin U_xgriscv/c/aluctrl_reg[3]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-27#1 Warning
-Invalid primary clock on hierarchical pin  
-A primary clock clkwiz/inst/clk_in1 is created on an inappropriate internal pin clkwiz/inst/clk_in1. It is not recommended to create a primary clock on a hierarchical pin when its driver pin has a fanout connected to multiple clock pins
 Related violations: <none>
 
 

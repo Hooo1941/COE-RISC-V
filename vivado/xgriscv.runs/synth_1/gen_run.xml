@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1616397893">
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1616427377">
   <File Type="RDS-PROPCONSTRS" Name="IP2SOC_Top_drc_synth.rpt"/>
   <File Type="PA-TCL" Name="IP2SOC_Top.tcl"/>
   <File Type="RDS-RDS" Name="IP2SOC_Top.vds"/>

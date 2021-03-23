@@ -35,6 +35,17 @@ module addr_adder (
 endmodule
 
 // 寄存器，可以用作流水线寄存器
+
+module flopr #(parameter WIDTH = 8)
+              (input                  clk, reset,
+               input      [WIDTH-1:0] d, 
+               output reg [WIDTH-1:0] q);
+
+  always @(posedge clk, posedge reset)
+    if (reset)      q <= 0;
+    else            q <= d;
+endmodule
+
 module floprc #(parameter WIDTH = 8)
               (input                  clk, reset, clear,
                input      [WIDTH-1:0] d, 
@@ -127,10 +138,10 @@ module cmp(
   output            lt);
 
   assign zero = (a == b);
-  assign lt = (!op_unsigned & ($signed(a) < $signed(b))) | (op_unsigned & (a < b));
-  // wire ltu = a < b;
-  // wire lts = (a[`XLEN-1] == a[`XLEN-1]) ? ltu : (b[`XLEN-1] < a[`XLEN-1]);
-  // assign lt = (~op_unsigned & lts) | (op_unsigned & ltu);
+  // assign lt = (!op_unsigned & ($signed(a) < $signed(b))) | (op_unsigned & (a < b));
+  wire ltu = a < b;
+  wire lts = (a[`XLEN-1] == b[`XLEN-1]) ? ltu : (b[`XLEN-1] < a[`XLEN-1]);
+  assign lt = (~op_unsigned & lts) | (op_unsigned & ltu);
 endmodule
 
 module ampattern (input [1:0] addr, input [1:0] swhb, output reg [3:0] amp); //amp: access memory pattern

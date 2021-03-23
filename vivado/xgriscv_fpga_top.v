@@ -59,7 +59,7 @@ module IP2SOC_Top(
    );
 
   MULTI_CH32 U_Multi (
-    .clk(clk),
+    .clk(Clk_CPU),
     .rst(rst),
     .EN(seg7_we),                //Write EN
     .ctrl(sw_i[5:0]),            //SW[5:0]
@@ -91,11 +91,13 @@ module IP2SOC_Top(
     );
 
   wire clk100;
+  wire clkseg7;
   clk_wiz_0 clkwiz(
     .clk_in1(clk),
     .reset(rst),
     .clk_out1(clk100),
-    .clk_out2(Clk_CPU)
+    .clk_out2(Clk_CPU),
+    .clk_out3(clkseg7)
   );
 
   // assign disp_seg_o = 0;
