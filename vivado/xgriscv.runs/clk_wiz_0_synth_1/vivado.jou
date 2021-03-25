@@ -2,8 +2,8 @@
 # Vivado v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Mon Mar 22 22:19:21 2021
-# Process ID: 22064
+# Start of session at: Wed Mar 24 20:11:24 2021
+# Process ID: 18068
 # Current directory: C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/clk_wiz_0_synth_1
 # Command line: vivado.exe -log clk_wiz_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source clk_wiz_0.tcl
 # Log file: C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/clk_wiz_0_synth_1/clk_wiz_0.vds

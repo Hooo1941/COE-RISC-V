@@ -32,8 +32,8 @@ module regfile (
   // write third port on falling edge of clock
   // register 0 hardwired to 0
 
-  always @(negedge clk)
-    if (we3 && wa3 != 0) begin
+  always @(posedge clk)
+    if (we3) begin
       rf[wa3] <= wd3;
 `ifdef DEBUG
       $display("x%d = %h", wa3, wd3);

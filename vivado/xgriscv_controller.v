@@ -145,8 +145,8 @@ module controller (
 
   assign memtoreg = rv32_load;
 
-  assign regwrite = rv32_lui | rv32_auipc | rv32_addri |
-   rv32_load | rv32_addrr | rv32_jal | rv32_jalr;
+  assign regwrite = (rv32_lui | rv32_auipc | rv32_addri |
+   rv32_load | rv32_addrr | rv32_jal | rv32_jalr) & rd != 0;
 
   always @(*)
     case (opcode)

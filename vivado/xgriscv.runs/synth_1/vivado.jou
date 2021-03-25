@@ -2,8 +2,8 @@
 # Vivado v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Mon Mar 22 23:36:26 2021
-# Process ID: 10552
+# Start of session at: Wed Mar 24 20:13:09 2021
+# Process ID: 12080
 # Current directory: C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1
 # Command line: vivado.exe -log IP2SOC_Top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source IP2SOC_Top.tcl
 # Log file: C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/IP2SOC_Top.vds

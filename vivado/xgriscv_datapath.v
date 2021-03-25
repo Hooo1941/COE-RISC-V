@@ -147,17 +147,19 @@ module datapath (
       reg_data
   );
 
-  wire forwardD1, forwardD2;
+  wire [1:0] forwardD1, forwardD2;
 
-  mux2 #(`XLEN) rdata1mux (
+  mux3 #(`XLEN) rdata1mux (
       rdata1R,
       aluoutM,
+      wdataW,
       forwardD1,
       rdata1D
   );
-  mux2 #(`XLEN) rdata2mux (
+  mux3 #(`XLEN) rdata2mux (
       rdata2R,
       aluoutM,
+      wdataW,
       forwardD2,
       rdata2D
   );
@@ -455,8 +457,6 @@ module datapath (
       memdataM
   );
 
-  assign forwardD1 = (rs1D == rdM) & regwriteM & ~memtoregM;
-  assign forwardD2 = (rs2D == rdM) & regwriteM & ~memtoregM;
   assign forwardcE = (rs2E == rdM) & regwriteM & ~memtoregM;
 //   MEM/WB pipeline registers
 //   for control signals
@@ -517,9 +517,13 @@ module datapath (
 //   // write-back stage logic
 //   assign forwardM = (waddrW == rs2M) & regwriteW;
   assign wdataW = memtoregW ? memdataW : aluoutW;
-  assign forwardaE = ((rs1E == rdM) & regwriteM) ? 2'b10 :
-  (((rs1E == waddrW) & regwriteW) ? 2'b01 : 2'b00);
-  assign forwardbE = ((rs2E == rdM) & regwriteM) ? 2'b10 :
-  (((rs2E == waddrW) & regwriteW) ? 2'b01 : 2'b00);
-  assign forwarddE = (rs2E == waddrW) & regwriteW;
+
+  assign forwardD1 = (rs1D == rdM & regwriteM & ~memtoregM) ? 2'b01 : (rs1D == waddrW & regwriteW ? 2'b10 : 2'b00);
+  assign forwardD2 = (rs2D == rdM & regwriteM & ~memtoregM) ? 2'b01 : (rs2D == waddrW & regwriteW ? 2'b10 : 2'b00);
+
+  assign forwardaE = (rs1E == rdM & regwriteM) ? 2'b10 :
+  ((rs1E == waddrW & regwriteW) ? 2'b01 : 2'b00);
+  assign forwardbE = (rs2E == rdM & regwriteM) ? 2'b10 :
+  ((rs2E == waddrW & regwriteW) ? 2'b01 : 2'b00);
+  assign forwarddE = rs2E == waddrW & regwriteW;
 endmodule

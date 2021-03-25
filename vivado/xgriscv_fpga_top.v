@@ -37,7 +37,7 @@ module IP2SOC_Top(
     .clk(Clk_CPU), 
     .we(ram_we), 
     .amp(ram_amp), 
-    .a({23'b0, ram_addr, 2'b00}), 
+    .a({ram_addr, 2'b00}), 
     .wd(dm_din),
     .rd(dm_dout)
     );
