@@ -1,0 +1,426 @@
+m255
+K3
+13
+cModel Technology
+dC:\Users\Qiu\Desktop\codlab\work\vivado
+T_opt
+VEiSjim]0Sdo8oaIQEafli0
+04 10 4 work xgriscv_tb fast 0
+=6-d43b04e8f724-60667ee0-181-64ec
+o-quiet -auto_acc_if_foreign -work sim +acc
+n@_opt
+OL;O;10.1c;51
+vaddr_adder
+IXcFd@agRA973UOnJLUEGn1
+VjRW@[W;kdm@nHaD8^n<f?3
+Z0 dC:\Users\Qiu\Desktop\codlab\work\modelsim
+Z1 w1617328619
+Z2 8C:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_parts.v
+Z3 FC:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_parts.v
+L0 30
+Z4 OL;L;10.1c;51
+r1
+31
+Z5 !s108 1617328629.617000
+Z6 !s107 xgriscv_defines.v|C:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_parts.v|
+Z7 !s90 -reportprogress|300|-work|sim|-vopt|C:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_parts.v|
+Z8 o-work sim -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!s100 PWEb4:8PZ:AbD6e8G:;f?3
+!i10b 1
+!s85 0
+valu
+IfHi5_6cLJXKM=9lQi^<F:0
+V1H[LX<f>o]Wn79]c5VfUM2
+Z9 dC:\Users\Qiu\Desktop\codlab\work\modelsim
+w1615088818
+8C:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_alu.v
+FC:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_alu.v
+L0 13
+R4
+r1
+31
+R8
+!s100 Xc4OnU2b=KnhCHc82Kj4<1
+!s90 -reportprogress|300|-work|sim|-vopt|C:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_alu.v|
+!s108 1617328629.266000
+!s107 xgriscv_defines.v|C:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_alu.v|
+!i10b 1
+!s85 0
+vampattern
+IZ7abL9IPi@2g4cYHYQ^7?0
+VUaCDf?Q3`BU[3:k;0odL32
+R9
+R1
+R2
+R3
+L0 191
+R4
+r1
+31
+R5
+R6
+R7
+R8
+!s100 mfb4XG^bYMPoM3T@Ef^c43
+!i10b 1
+!s85 0
+vcmp
+I]34JeXaiOX54I:P8edE3M3
+VhZQYKB_Aieif>[2`2ZJ_>0
+R9
+R1
+R2
+R3
+L0 181
+R4
+r1
+31
+R5
+R6
+R7
+R8
+!s100 0ij6:aIffoO@3NfN>IXAk3
+!i10b 1
+!s85 0
+vcontroller
+IbRc]m]Il7FM<nRWdL`j0N0
+VFbZ=hCmfIliIC>zDkH_kX3
+R9
+w1615293014
+8C:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_controller.v
+FC:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_controller.v
+L0 14
+R4
+r1
+31
+R8
+!s100 N=9Y=8hLNcF@KPh5aDdgf2
+!s90 -reportprogress|300|-work|sim|-vopt|C:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_controller.v|
+!s108 1617328629.334000
+!s107 xgriscv_defines.v|C:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_controller.v|
+!i10b 1
+!s85 0
+vdatapath
+I1_E<J<5P3MB890gTHcKOB0
+V56MI3nND3J@Jkf[9HTnz83
+R9
+w1617329876
+8C:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_datapath.v
+FC:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_datapath.v
+L0 13
+R4
+r1
+31
+R8
+!s90 -reportprogress|300|-work|sim|-vopt|C:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_datapath.v|
+!i10b 1
+!s100 n;@O9Jl@HS_5_@P<2W8T90
+!s85 0
+!s108 1617329886.043000
+!s107 xgriscv_defines.v|C:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_datapath.v|
+vdmem
+ILWSff2[;?S2gd6zQU9dlo3
+V0FLO9bF>@ZOJFeNLA@5l_0
+R9
+Z10 w1617329121
+Z11 8C:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_mem.v
+Z12 FC:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_mem.v
+L0 30
+R4
+r1
+31
+Z13 !s108 1617329126.650000
+Z14 !s107 xgriscv_defines.v|C:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_mem.v|
+Z15 !s90 -reportprogress|300|-work|sim|-vopt|C:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_mem.v|
+R8
+!s100 fhH?[39XQW`=Ej>ZRz=Hn0
+!i10b 1
+!s85 0
+vflopenr
+IQe3FIf3P_YC]b;ZHXn6@71
+Vl[@31Ka9Wak9oGo?2I58:3
+R9
+R1
+R2
+R3
+L0 72
+R4
+r1
+31
+R5
+R6
+R7
+R8
+!s100 aE4HL:f65LYFgFO`ejQNa1
+!i10b 1
+!s85 0
+vflopenrc
+IJG:ESjC]kiHe68j_0;9QM2
+VJc__=:5=:hXFEXOM;akLe0
+R9
+R1
+R2
+R3
+L0 60
+R4
+r1
+31
+R5
+R6
+R7
+R8
+!s100 >_[WdR8OU[V1_?@K=2o]22
+!i10b 1
+!s85 0
+vflopr
+I>HlLZ2MA4@19n`Dj^?Kfj3
+VKfe>keNPnLBlHh<KCg1o52
+R9
+R1
+R2
+R3
+L0 39
+R4
+r1
+31
+R5
+R6
+R7
+R8
+!s100 QSnjo9gEz>n@5CoUL9V731
+!i10b 1
+!s85 0
+vfloprc
+I<zQRJ1^IH6>B?YY8@TC4P0
+VA_fUF5TGlPg_NBShHD<iO1
+R9
+R1
+R2
+R3
+L0 49
+R4
+r1
+31
+R5
+R6
+R7
+R8
+!s100 0M`394]QNYkcIGhJ_PaI<0
+!i10b 1
+!s85 0
+vimem
+INi2<L]LRmT]0SdkH]kVD_3
+VMWGIHmGT5PSCn6JZe;^i[0
+R9
+R10
+R11
+R12
+L0 14
+R4
+r1
+31
+R13
+R14
+R15
+R8
+!s100 =il0<3<HHJ[Tk?90Dl3>P3
+!i10b 1
+!s85 0
+vimm
+I20D<RFA26G:iM>_fR>l5:3
+VLC70cR3>KGH<eXM[5hJk]0
+R9
+R1
+R2
+R3
+L0 151
+R4
+r1
+31
+R5
+R6
+R7
+R8
+!s100 aIm[85ePF1RSj=i2bMTko0
+!i10b 1
+!s85 0
+vmux2
+IiC0jSHn6MF<=1]Fk`Ii:S3
+VT8RWJBjAIeM]>7U=5kBkT1
+R9
+R1
+R2
+R3
+L0 83
+R4
+r1
+31
+R5
+R6
+R7
+R8
+!s100 Y5:6GQ;kQjz71H@7ET<423
+!i10b 1
+!s85 0
+vmux3
+IU^lDd5zeoX0U@0TdQoZfG3
+VOUmeXZ?F<IJFMY21E797h2
+R9
+R1
+R2
+R3
+L0 91
+R4
+r1
+31
+R5
+R6
+R7
+R8
+!s100 NYnkml9Nbo035CkYYfP3Q1
+!i10b 1
+!s85 0
+vmux4
+IF=EL7J@MBih0VL?z^AzzO0
+V@m74j;^3XFJ7>OzQXh6V`0
+R9
+R1
+R2
+R3
+L0 99
+R4
+r1
+31
+R5
+R6
+R7
+R8
+!s100 S2_AmfgZzTZH7B5Ck6A5Y3
+!i10b 1
+!s85 0
+vmux5
+IZ@OK5^IcLQA5XkPJ:4:^H3
+VSO4hSQWJh7dLK]kM[V4nn0
+R9
+R1
+R2
+R3
+L0 115
+R4
+r1
+31
+R5
+R6
+R7
+R8
+!s100 [OR^JlJlB6CEBEn5hOPYL0
+!i10b 1
+!s85 0
+vmux6
+I@IW`HKMCkBWAc2z<bk57M3
+VEeN4P2TImY5zJX`Ld91KD1
+R9
+R1
+R2
+R3
+L0 133
+R4
+r1
+31
+R5
+R6
+R7
+R8
+!s100 5:=SHffCZ?Tf6;4]Y9;^g3
+!i10b 1
+!s85 0
+vpcenr
+I9NGFP`oGJ1M_0G7KRW@Mb0
+ViPMeHNIMB@UW^RgejI[RM0
+R9
+R1
+R2
+R3
+L0 15
+R4
+r1
+31
+R5
+R6
+R7
+R8
+!s100 J5_EHIYE_Ha[K5=O;3L8<2
+!i10b 1
+!s85 0
+vregfile
+I2mm866GK9IXCf8b6HMRgk3
+VSldFmo9?Tn3<:Hg>GG@Ka2
+R9
+w1615039221
+8C:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_regfile.v
+FC:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_regfile.v
+L0 14
+R4
+r1
+31
+R8
+!s100 MD:R?T<F^1FooCWDe4Tde3
+!s90 -reportprogress|300|-work|sim|-vopt|C:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_regfile.v|
+!s108 1617328629.819000
+!s107 xgriscv_defines.v|C:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_regfile.v|
+!i10b 1
+!s85 0
+vxgriscv
+I^?jD8S@<2c1c?NY5cSSH>0
+V1:Yf0XIIInIeUKMUDSm:;0
+R9
+Z16 w1615288331
+Z17 8C:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_pipelined.v
+Z18 FC:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_pipelined.v
+L0 54
+R4
+r1
+31
+Z19 !s108 1617328629.746000
+Z20 !s107 xgriscv_defines.v|C:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_pipelined.v|
+Z21 !s90 -reportprogress|300|-work|sim|-vopt|C:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_pipelined.v|
+R8
+!s100 @DEJBR4JchKdAJ=WjiaTK1
+!i10b 1
+!s85 0
+vxgriscv_pipeline
+Ihiba9RLcCDKi3C_[R<L@J3
+V@nYgo7L?EQOloae9:;5Wh2
+R9
+R16
+R17
+R18
+L0 13
+R4
+r1
+31
+R19
+R20
+R21
+R8
+!s100 CiOe9H:YXneCOcbnX6Q251
+!i10b 1
+!s85 0
+vxgriscv_tb
+I3`03XhXZ_6Ok]9;nD6Gb=0
+VgIJSlI7:c5Wa:?]@T@<5O3
+R9
+w1614940938
+8C:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_tb.v
+FC:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_tb.v
+L0 12
+R4
+r1
+31
+R8
+!s100 iI3M<2P_UIZ2C4MJeBmGg2
+!s90 -reportprogress|300|-work|sim|-vopt|C:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_tb.v|
+!s108 1617328629.886000
+!s107 C:/Users/Qiu/Desktop/codlab/work/modelsim/xgriscv_tb.v|
+!i10b 1
+!s85 0

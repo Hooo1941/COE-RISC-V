@@ -2,8 +2,8 @@
 # Vivado v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Wed Mar 24 20:13:09 2021
-# Process ID: 12080
+# Start of session at: Fri Mar 26 08:44:53 2021
+# Process ID: 12552
 # Current directory: C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1
 # Command line: vivado.exe -log IP2SOC_Top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source IP2SOC_Top.tcl
 # Log file: C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/IP2SOC_Top.vds
@@ -15,90 +15,92 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t-csg324'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t-csg324'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 15576 
+INFO: Helper process launched with PID 12232 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 311.184 ; gain = 73.078
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 311.840 ; gain = 74.047
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'IP2SOC_Top' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_fpga_top.v:3]
-INFO: [Synth 8-638] synthesizing module 'imem' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-12080-Hoo/realtime/imem_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'imem' (1#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-12080-Hoo/realtime/imem_stub.v:6]
-INFO: [Synth 8-638] synthesizing module 'dmem' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_mem.v:30]
-INFO: [Synth 8-256] done synthesizing module 'dmem' (2#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_mem.v:30]
+INFO: [Synth 8-638] synthesizing module 'imem' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-12552-Hoo/realtime/imem_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'imem' (1#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-12552-Hoo/realtime/imem_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'dmem' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_mem.v:57]
+INFO: [Synth 8-638] synthesizing module 'memip' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-12552-Hoo/realtime/memip_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'memip' (2#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-12552-Hoo/realtime/memip_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'dmem' (3#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_mem.v:57]
 INFO: [Synth 8-638] synthesizing module 'MIO_BUS' [C:/Users/Qiu/Desktop/codlab/work/vivado/MIO_BUS.v:24]
-INFO: [Synth 8-256] done synthesizing module 'MIO_BUS' (3#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/MIO_BUS.v:24]
+INFO: [Synth 8-256] done synthesizing module 'MIO_BUS' (4#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/MIO_BUS.v:24]
 INFO: [Synth 8-638] synthesizing module 'MULTI_CH32' [C:/Users/Qiu/Desktop/codlab/work/vivado/MULTI_CH32.v:23]
-INFO: [Synth 8-256] done synthesizing module 'MULTI_CH32' (4#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/MULTI_CH32.v:23]
+INFO: [Synth 8-256] done synthesizing module 'MULTI_CH32' (5#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/MULTI_CH32.v:23]
 INFO: [Synth 8-638] synthesizing module 'xgriscv' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_pipelined.v:15]
 INFO: [Synth 8-638] synthesizing module 'controller' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_controller.v:14]
 INFO: [Synth 8-226] default block is never used [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_controller.v:164]
 WARNING: [Synth 8-151] case item 3'b001 is unreachable [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_controller.v:185]
 INFO: [Synth 8-226] default block is never used [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_controller.v:185]
-INFO: [Synth 8-256] done synthesizing module 'controller' (5#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_controller.v:14]
+INFO: [Synth 8-256] done synthesizing module 'controller' (6#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_controller.v:14]
 INFO: [Synth 8-638] synthesizing module 'datapath' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_datapath.v:13]
 INFO: [Synth 8-638] synthesizing module 'mux2' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:72]
 	Parameter WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'mux2' (6#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:72]
+INFO: [Synth 8-256] done synthesizing module 'mux2' (7#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:72]
 INFO: [Synth 8-638] synthesizing module 'pcenr' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:15]
-INFO: [Synth 8-256] done synthesizing module 'pcenr' (7#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:15]
+INFO: [Synth 8-256] done synthesizing module 'pcenr' (8#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:15]
 INFO: [Synth 8-638] synthesizing module 'addr_adder' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:30]
-INFO: [Synth 8-256] done synthesizing module 'addr_adder' (8#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:30]
+INFO: [Synth 8-256] done synthesizing module 'addr_adder' (9#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:30]
 INFO: [Synth 8-638] synthesizing module 'flopenrc' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:60]
 	Parameter WIDTH bound to: 64 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'flopenrc' (9#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:60]
+INFO: [Synth 8-256] done synthesizing module 'flopenrc' (10#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:60]
 INFO: [Synth 8-638] synthesizing module 'imm' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:104]
-INFO: [Synth 8-256] done synthesizing module 'imm' (10#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:104]
+INFO: [Synth 8-256] done synthesizing module 'imm' (11#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:104]
 INFO: [Synth 8-638] synthesizing module 'regfile' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_regfile.v:14]
-INFO: [Synth 8-256] done synthesizing module 'regfile' (11#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_regfile.v:14]
+INFO: [Synth 8-256] done synthesizing module 'regfile' (12#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_regfile.v:14]
 INFO: [Synth 8-638] synthesizing module 'mux3' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:80]
 	Parameter WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'mux3' (12#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:80]
+INFO: [Synth 8-256] done synthesizing module 'mux3' (13#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:80]
 INFO: [Synth 8-638] synthesizing module 'mux2__parameterized0' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:72]
 	Parameter WIDTH bound to: 5 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'mux2__parameterized0' (12#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:72]
+INFO: [Synth 8-256] done synthesizing module 'mux2__parameterized0' (13#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:72]
 INFO: [Synth 8-638] synthesizing module 'cmp' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:134]
-INFO: [Synth 8-256] done synthesizing module 'cmp' (13#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:134]
+INFO: [Synth 8-256] done synthesizing module 'cmp' (14#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:134]
 INFO: [Synth 8-638] synthesizing module 'floprc' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:49]
 	Parameter WIDTH bound to: 18 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'floprc' (14#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:49]
+INFO: [Synth 8-256] done synthesizing module 'floprc' (15#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:49]
 INFO: [Synth 8-638] synthesizing module 'floprc__parameterized0' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:49]
 	Parameter WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'floprc__parameterized0' (14#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:49]
+INFO: [Synth 8-256] done synthesizing module 'floprc__parameterized0' (15#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:49]
 INFO: [Synth 8-638] synthesizing module 'floprc__parameterized1' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:49]
 	Parameter WIDTH bound to: 5 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'floprc__parameterized1' (14#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:49]
+INFO: [Synth 8-256] done synthesizing module 'floprc__parameterized1' (15#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:49]
 INFO: [Synth 8-638] synthesizing module 'mux3__parameterized0' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:80]
 	Parameter WIDTH bound to: 5 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'mux3__parameterized0' (14#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:80]
+INFO: [Synth 8-256] done synthesizing module 'mux3__parameterized0' (15#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:80]
 INFO: [Synth 8-638] synthesizing module 'alu' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_alu.v:13]
-INFO: [Synth 8-256] done synthesizing module 'alu' (15#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_alu.v:13]
+INFO: [Synth 8-256] done synthesizing module 'alu' (16#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_alu.v:13]
 INFO: [Synth 8-638] synthesizing module 'flopr' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:39]
 	Parameter WIDTH bound to: 9 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'flopr' (16#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:39]
+INFO: [Synth 8-256] done synthesizing module 'flopr' (17#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:39]
 INFO: [Synth 8-638] synthesizing module 'flopr__parameterized0' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:39]
 	Parameter WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'flopr__parameterized0' (16#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:39]
+INFO: [Synth 8-256] done synthesizing module 'flopr__parameterized0' (17#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:39]
 INFO: [Synth 8-638] synthesizing module 'flopr__parameterized1' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:39]
 	Parameter WIDTH bound to: 5 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'flopr__parameterized1' (16#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:39]
+INFO: [Synth 8-256] done synthesizing module 'flopr__parameterized1' (17#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:39]
 INFO: [Synth 8-638] synthesizing module 'ampattern' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:147]
-INFO: [Synth 8-256] done synthesizing module 'ampattern' (17#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:147]
+INFO: [Synth 8-256] done synthesizing module 'ampattern' (18#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:147]
 INFO: [Synth 8-638] synthesizing module 'mux2__parameterized1' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:72]
 	Parameter WIDTH bound to: 16 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'mux2__parameterized1' (17#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:72]
+INFO: [Synth 8-256] done synthesizing module 'mux2__parameterized1' (18#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:72]
 INFO: [Synth 8-638] synthesizing module 'mux4' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:88]
 	Parameter WIDTH bound to: 8 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'mux4' (18#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:88]
+INFO: [Synth 8-256] done synthesizing module 'mux4' (19#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:88]
 INFO: [Synth 8-638] synthesizing module 'flopr__parameterized2' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:39]
 	Parameter WIDTH bound to: 3 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'flopr__parameterized2' (18#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:39]
-INFO: [Synth 8-256] done synthesizing module 'datapath' (19#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_datapath.v:13]
-INFO: [Synth 8-256] done synthesizing module 'xgriscv' (20#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_pipelined.v:15]
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-12080-Hoo/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (21#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-12080-Hoo/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-256] done synthesizing module 'flopr__parameterized2' (19#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_parts.v:39]
+INFO: [Synth 8-256] done synthesizing module 'datapath' (20#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_datapath.v:13]
+INFO: [Synth 8-256] done synthesizing module 'xgriscv' (21#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_pipelined.v:15]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-12552-Hoo/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (22#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-12552-Hoo/realtime/clk_wiz_0_stub.v:5]
 INFO: [Synth 8-638] synthesizing module 'SEG7x16' [C:/Users/Qiu/Desktop/codlab/work/vivado/SEG7x16.v:21]
 INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Qiu/Desktop/codlab/work/vivado/SEG7x16.v:87]
-INFO: [Synth 8-256] done synthesizing module 'SEG7x16' (22#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/SEG7x16.v:21]
-INFO: [Synth 8-256] done synthesizing module 'IP2SOC_Top' (23#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_fpga_top.v:3]
+INFO: [Synth 8-256] done synthesizing module 'SEG7x16' (23#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/SEG7x16.v:21]
+INFO: [Synth 8-256] done synthesizing module 'IP2SOC_Top' (24#1) [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_fpga_top.v:3]
 WARNING: [Synth 8-3331] design datapath has unconnected port pcsrcD
 WARNING: [Synth 8-3331] design controller has unconnected port clk
 WARNING: [Synth 8-3331] design controller has unconnected port reset
@@ -121,10 +123,8 @@ WARNING: [Synth 8-3331] design controller has unconnected port imm[1]
 WARNING: [Synth 8-3331] design controller has unconnected port imm[0]
 WARNING: [Synth 8-3331] design controller has unconnected port zero
 WARNING: [Synth 8-3331] design controller has unconnected port lt
-WARNING: [Synth 8-3331] design dmem has unconnected port a[1]
-WARNING: [Synth 8-3331] design dmem has unconnected port a[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 351.516 ; gain = 113.410
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 351.164 ; gain = 113.371
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -134,17 +134,25 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 351.516 ; gain = 113.410
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 351.164 ; gain = 113.371
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-12080-Hoo/dcp5/imem_in_context.xdc] for cell 'U_IM'
-Finished Parsing XDC File [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-12080-Hoo/dcp5/imem_in_context.xdc] for cell 'U_IM'
-Parsing XDC File [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-12080-Hoo/dcp7/clk_wiz_0_in_context.xdc] for cell 'clkwiz'
-Finished Parsing XDC File [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-12080-Hoo/dcp7/clk_wiz_0_in_context.xdc] for cell 'clkwiz'
+Parsing XDC File [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-12552-Hoo/dcp7/dmem_in_context.xdc] for cell 'U_dmem/dmem_0'
+Finished Parsing XDC File [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-12552-Hoo/dcp7/dmem_in_context.xdc] for cell 'U_dmem/dmem_0'
+Parsing XDC File [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-12552-Hoo/dcp7/dmem_in_context.xdc] for cell 'U_dmem/dmem_1'
+Finished Parsing XDC File [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-12552-Hoo/dcp7/dmem_in_context.xdc] for cell 'U_dmem/dmem_1'
+Parsing XDC File [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-12552-Hoo/dcp7/dmem_in_context.xdc] for cell 'U_dmem/dmem_2'
+Finished Parsing XDC File [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-12552-Hoo/dcp7/dmem_in_context.xdc] for cell 'U_dmem/dmem_2'
+Parsing XDC File [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-12552-Hoo/dcp7/dmem_in_context.xdc] for cell 'U_dmem/dmem_3'
+Finished Parsing XDC File [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-12552-Hoo/dcp7/dmem_in_context.xdc] for cell 'U_dmem/dmem_3'
+Parsing XDC File [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-12552-Hoo/dcp9/imem_in_context.xdc] for cell 'U_IM'
+Finished Parsing XDC File [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-12552-Hoo/dcp9/imem_in_context.xdc] for cell 'U_IM'
+Parsing XDC File [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-12552-Hoo/dcp11/clk_wiz_0_in_context.xdc] for cell 'clkwiz'
+Finished Parsing XDC File [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-12552-Hoo/dcp11/clk_wiz_0_in_context.xdc] for cell 'clkwiz'
 Parsing XDC File [C:/Users/Qiu/Desktop/codlab/work/vivado/constraints/Nexys4DDR_CPU.xdc]
 Finished Parsing XDC File [C:/Users/Qiu/Desktop/codlab/work/vivado/constraints/Nexys4DDR_CPU.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Qiu/Desktop/codlab/work/vivado/constraints/Nexys4DDR_CPU.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/IP2SOC_Top_propImpl.xdc].
@@ -156,26 +164,34 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 758.898 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 759.602 ; gain = 0.000
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'U_dmem/dmem_0' at clock pin 'clk' is different from the actual clock period '7.692', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'U_dmem/dmem_1' at clock pin 'clk' is different from the actual clock period '7.692', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'U_dmem/dmem_2' at clock pin 'clk' is different from the actual clock period '7.692', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'U_dmem/dmem_3' at clock pin 'clk' is different from the actual clock period '7.692', this can lead to different synthesis results.
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 758.898 ; gain = 520.793
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 759.602 ; gain = 521.809
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 758.898 ; gain = 520.793
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 759.602 ; gain = 521.809
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for clk. (constraint file  C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-12080-Hoo/dcp7/clk_wiz_0_in_context.xdc, line 5).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for clk. (constraint file  C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-12080-Hoo/dcp7/clk_wiz_0_in_context.xdc, line 6).
+Applied set_property IO_BUFFER_TYPE = NONE for clk. (constraint file  C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-12552-Hoo/dcp11/clk_wiz_0_in_context.xdc, line 5).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for clk. (constraint file  C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/.Xil/Vivado-12552-Hoo/dcp11/clk_wiz_0_in_context.xdc, line 6).
 Applied set_property DONT_TOUCH = true for U_IM. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for U_dmem/dmem_0. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for U_dmem/dmem_1. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for U_dmem/dmem_2. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for U_dmem/dmem_3. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for clkwiz. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 758.898 ; gain = 520.793
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 759.602 ; gain = 521.809
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "aluctrl" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "aluctrl" won't be mapped to RAM because it is too sparse
@@ -184,7 +200,7 @@ INFO: [Synth 8-5546] ROM "o_seg_r" won't be mapped to RAM because it is too spar
 WARNING: [Synth 8-6014] Unused sequential element cnt_reg was removed.  [C:/Users/Qiu/Desktop/codlab/work/vivado/SEG7x16.v:34]
 WARNING: [Synth 8-327] inferring latch for variable 'aluctrl_reg' [C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_controller.v:153]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 758.898 ; gain = 520.793
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 759.602 ; gain = 521.809
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -208,19 +224,17 @@ Detailed RTL Component Info :
 	               32 Bit    Registers := 11    
 	               18 Bit    Registers := 1     
 	                9 Bit    Registers := 1     
-	                8 Bit    Registers := 1     
+	                8 Bit    Registers := 5     
 	                5 Bit    Registers := 7     
 	                3 Bit    Registers := 2     
-+---RAMs : 
-	               4K Bit         RAMs := 1     
 +---Muxes : 
 	   2 Input     64 Bit        Muxes := 1     
-	   8 Input     32 Bit        Muxes := 2     
 	   2 Input     32 Bit        Muxes := 29    
 	   3 Input     32 Bit        Muxes := 3     
 	  11 Input     32 Bit        Muxes := 1     
 	   2 Input     18 Bit        Muxes := 1     
 	   2 Input     16 Bit        Muxes := 1     
+	   5 Input      8 Bit        Muxes := 2     
 	   4 Input      8 Bit        Muxes := 1     
 	   8 Input      8 Bit        Muxes := 1     
 	   2 Input      7 Bit        Muxes := 1     
@@ -246,10 +260,10 @@ Start RTL Hierarchical Component Statistics
 Hierarchical RTL Component report 
 Module dmem 
 Detailed RTL Component Info : 
-+---RAMs : 
-	               4K Bit         RAMs := 1     
++---Registers : 
+	                8 Bit    Registers := 4     
 +---Muxes : 
-	   8 Input     32 Bit        Muxes := 2     
+	   5 Input      8 Bit        Muxes := 2     
 Module MIO_BUS 
 Detailed RTL Component Info : 
 +---Muxes : 
@@ -403,7 +417,6 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5544] ROM "U_dmem/" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 WARNING: [Synth 8-6014] Unused sequential element U_7SEG/cnt_reg was removed.  [C:/Users/Qiu/Desktop/codlab/work/vivado/SEG7x16.v:34]
 WARNING: [Synth 8-3331] design datapath has unconnected port pcsrcD
 INFO: [Synth 8-3333] propagating constant 1 across sequential element (\U_7SEG/o_seg_r_reg[7] )
@@ -412,19 +425,18 @@ WARNING: [Synth 8-3332] Sequential element (U_xgriscv/dp/regM/q_reg[0]) is unuse
 WARNING: [Synth 8-3332] Sequential element (U_xgriscv/dp/regW/q_reg[0]) is unused and will be removed from module IP2SOC_Top.
 WARNING: [Synth 8-3332] Sequential element (U_7SEG/o_seg_r_reg[7]) is unused and will be removed from module IP2SOC_Top.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:50 ; elapsed = 00:00:53 . Memory (MB): peak = 763.508 ; gain = 525.402
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 763.309 ; gain = 525.516
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 
 Distributed RAM: Preliminary Mapping  Report (see note below)
-+------------+------------------------+-----------+----------------------+------------------+
-|Module Name | RTL Object             | Inference | Size (Depth x Width) | Primitives       | 
-+------------+------------------------+-----------+----------------------+------------------+
-|IP2SOC_Top  | U_dmem/RAM_reg         | Implied   | 128 x 32             | RAM128X1S x 32   | 
-|IP2SOC_Top  | U_xgriscv/dp/rf/rf_reg | Implied   | 32 x 32              | RAM32M x 18      | 
-+------------+------------------------+-----------+----------------------+------------------+
++------------+------------------------+-----------+----------------------+---------------+
+|Module Name | RTL Object             | Inference | Size (Depth x Width) | Primitives    | 
++------------+------------------------+-----------+----------------------+---------------+
+|IP2SOC_Top  | U_xgriscv/dp/rf/rf_reg | Implied   | 32 x 32              | RAM32M x 18   | 
++------------+------------------------+-----------+----------------------+---------------+
 
 Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
 ---------------------------------------------------------------------------------
@@ -444,13 +456,13 @@ INFO: [Synth 8-5578] Moved timing constraint from pin 'clkwiz/clk_out2' to pin '
 INFO: [Synth 8-5578] Moved timing constraint from pin 'clkwiz/clk_out3' to pin 'clkwiz/bbstub_clk_out3/O'
 INFO: [Synth 8-5819] Moved 3 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:13 ; elapsed = 00:01:16 . Memory (MB): peak = 763.508 ; gain = 525.402
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 763.309 ; gain = 525.516
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:25 ; elapsed = 00:01:28 . Memory (MB): peak = 920.297 ; gain = 682.191
+Finished Timing Optimization : Time (s): cpu = 00:00:43 ; elapsed = 00:00:45 . Memory (MB): peak = 931.195 ; gain = 693.402
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -462,7 +474,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:27 ; elapsed = 00:01:30 . Memory (MB): peak = 920.297 ; gain = 682.191
+Finished Technology Mapping : Time (s): cpu = 00:00:45 ; elapsed = 00:00:47 . Memory (MB): peak = 931.195 ; gain = 693.402
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -486,7 +498,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:29 ; elapsed = 00:01:31 . Memory (MB): peak = 920.297 ; gain = 682.191
+Finished IO Insertion : Time (s): cpu = 00:00:45 ; elapsed = 00:00:47 . Memory (MB): peak = 931.195 ; gain = 693.402
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -499,7 +511,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:29 ; elapsed = 00:01:32 . Memory (MB): peak = 920.297 ; gain = 682.191
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:46 ; elapsed = 00:00:47 . Memory (MB): peak = 931.195 ; gain = 693.402
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -511,25 +523,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:29 ; elapsed = 00:01:32 . Memory (MB): peak = 920.297 ; gain = 682.191
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 931.195 ; gain = 693.402
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:29 ; elapsed = 00:01:32 . Memory (MB): peak = 920.297 ; gain = 682.191
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 931.195 ; gain = 693.402
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:29 ; elapsed = 00:01:32 . Memory (MB): peak = 920.297 ; gain = 682.191
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 931.195 ; gain = 693.402
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:29 ; elapsed = 00:01:32 . Memory (MB): peak = 920.297 ; gain = 682.191
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 931.195 ; gain = 693.402
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -541,6 +553,7 @@ Report BlackBoxes:
 +------+--------------+----------+
 |1     |imem          |         1|
 |2     |clk_wiz_0     |         1|
+|3     |memip         |         4|
 +------+--------------+----------+
 
 Report Cell Usage: 
@@ -549,47 +562,51 @@ Report Cell Usage:
 +------+----------+------+
 |1     |clk_wiz_0 |     1|
 |2     |imem      |     1|
-|3     |CARRY4    |    40|
-|4     |LUT1      |    52|
-|5     |LUT2      |   157|
-|6     |LUT3      |   153|
-|7     |LUT4      |   244|
-|8     |LUT5      |   291|
-|9     |LUT6      |   720|
-|10    |MUXF7     |    42|
-|11    |MUXF8     |     3|
-|12    |RAM128X1S |    32|
-|13    |RAM32M    |    18|
-|14    |XORCY     |     1|
-|15    |FDCE      |   479|
-|16    |FDPE      |    24|
-|17    |LD        |     4|
-|18    |IBUF      |    17|
-|19    |OBUF      |    16|
+|3     |memip     |     1|
+|4     |memip__1  |     1|
+|5     |memip__2  |     1|
+|6     |memip__3  |     1|
+|7     |CARRY4    |    40|
+|8     |LUT1      |    53|
+|9     |LUT2      |   157|
+|10    |LUT3      |   154|
+|11    |LUT4      |   252|
+|12    |LUT5      |   296|
+|13    |LUT6      |   685|
+|14    |MUXF7     |    42|
+|15    |MUXF8     |     3|
+|16    |RAM32M    |    18|
+|17    |XORCY     |     1|
+|18    |FDCE      |   479|
+|19    |FDPE      |    24|
+|20    |FDRE      |    32|
+|21    |LD        |     4|
+|22    |IBUF      |    17|
+|23    |OBUF      |    16|
 +------+----------+------+
 
 Report Instance Areas: 
 +------+---------------+--------------------------+------+
 |      |Instance       |Module                    |Cells |
 +------+---------------+--------------------------+------+
-|1     |top            |                          |  2328|
+|1     |top            |                          |  2340|
 |2     |  U_7SEG       |SEG7x16                   |   107|
 |3     |  U_Multi      |MULTI_CH32                |    32|
-|4     |  U_dmem       |dmem                      |    32|
-|5     |  U_xgriscv    |xgriscv                   |  2089|
+|4     |  U_dmem       |dmem                      |    65|
+|5     |  U_xgriscv    |xgriscv                   |  2068|
 |6     |    c          |controller                |     8|
-|7     |    dp         |datapath                  |  2081|
+|7     |    dp         |datapath                  |  2060|
 |8     |      alu      |alu                       |    13|
 |9     |      cmp      |cmp                       |     7|
 |10    |      im       |imm                       |     1|
 |11    |      pcadder1 |addr_adder                |     8|
 |12    |      pcreg    |pcenr                     |   126|
 |13    |      pr1E     |floprc__parameterized0    |    32|
-|14    |      pr1M     |flopr__parameterized0     |   209|
+|14    |      pr1M     |flopr__parameterized0     |   154|
 |15    |      pr1W     |flopr__parameterized0_0   |    32|
 |16    |      pr2E     |floprc__parameterized0_1  |    32|
 |17    |      pr2M     |flopr__parameterized0_2   |    33|
-|18    |      pr2W     |flopr__parameterized0_3   |   195|
+|18    |      pr2W     |flopr__parameterized0_3   |   205|
 |19    |      pr3E     |floprc__parameterized0_4  |    32|
 |20    |      pr3M     |flopr__parameterized1     |     6|
 |21    |      pr3W     |flopr__parameterized1_5   |     9|
@@ -601,31 +618,30 @@ Report Instance Areas:
 |27    |      pr8E     |floprc__parameterized0_10 |    92|
 |28    |      prD      |flopenrc                  |   583|
 |29    |      regE     |floprc                    |   317|
-|30    |      regM     |flopr                     |    38|
+|30    |      regM     |flopr                     |    62|
 |31    |      regW     |flopr__parameterized2     |     2|
 |32    |      rf       |regfile                   |    50|
 +------+---------------+--------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:29 ; elapsed = 00:01:32 . Memory (MB): peak = 920.297 ; gain = 682.191
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 931.195 ; gain = 693.402
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 8 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:11 ; elapsed = 00:01:20 . Memory (MB): peak = 920.297 ; gain = 274.809
-Synthesis Optimization Complete : Time (s): cpu = 00:01:30 ; elapsed = 00:01:32 . Memory (MB): peak = 920.297 ; gain = 682.191
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:34 ; elapsed = 00:00:40 . Memory (MB): peak = 931.195 ; gain = 284.965
+Synthesis Optimization Complete : Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 931.195 ; gain = 693.402
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 112 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 80 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 55 instances were transformed.
+  A total of 23 instances were transformed.
   (MUXCY,XORCY) => CARRY4: 1 instances
   LD => LDCE: 4 instances
-  RAM128X1S => RAM128X1S (MUXF7, RAMS64E, RAMS64E): 32 instances
   RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 18 instances
 
-86 Infos, 33 Warnings, 0 Critical Warnings and 0 Errors encountered.
+87 Infos, 35 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:34 ; elapsed = 00:01:38 . Memory (MB): peak = 920.297 ; gain = 691.301
+synth_design: Time (s): cpu = 00:00:51 ; elapsed = 00:00:54 . Memory (MB): peak = 931.195 ; gain = 702.379
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/IP2SOC_Top.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.029 . Memory (MB): peak = 920.297 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Wed Mar 24 20:14:56 2021...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.048 . Memory (MB): peak = 931.195 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Fri Mar 26 08:45:51 2021...

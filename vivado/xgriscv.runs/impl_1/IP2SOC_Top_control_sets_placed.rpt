@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date         : Wed Mar 24 20:17:01 2021
+| Date         : Fri Mar 26 08:47:33 2021
 | Host         : Hoo running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file IP2SOC_Top_control_sets_placed.rpt
 | Design       : IP2SOC_Top
@@ -22,7 +22,7 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    18 |
+| Number of unique control sets                            |    17 |
 | Unused register locations in slices containing registers |    49 |
 +----------------------------------------------------------+-------+
 
@@ -33,9 +33,9 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               4 |            2 |
-| No           | No                    | Yes                    |             372 |          178 |
-| No           | Yes                   | No                     |               0 |            0 |
+| No           | No                    | No                     |              28 |           10 |
+| No           | No                    | Yes                    |             372 |          177 |
+| No           | Yes                   | No                     |               8 |            6 |
 | Yes          | No                    | No                     |               0 |            0 |
 | Yes          | No                    | Yes                    |             127 |           47 |
 | Yes          | Yes                   | No                     |               0 |            0 |
@@ -45,28 +45,27 @@ Table of Contents
 3. Detailed Control Set Information
 -----------------------------------
 
-+---------------------------------+--------------------------------+--------------------------+------------------+----------------+
-|           Clock Signal          |          Enable Signal         |     Set/Reset Signal     | Slice Load Count | Bel Load Count |
-+---------------------------------+--------------------------------+--------------------------+------------------+----------------+
-|  clkwiz/inst/clk_out2           | U_xgriscv/dp/prD/q[63]_i_1_n_0 | U_7SEG/rst               |                1 |              2 |
-|  U_7SEG/seg7_clk                |                                | U_7SEG/rst               |                1 |              3 |
-|  U_xgriscv/dp/prD/q_reg[2]_0[0] |                                |                          |                2 |              4 |
-|  clkwiz/inst/clk_out2           | U_xgriscv/dp/prD/q[63]_i_1_n_0 | U_xgriscv/dp/pr2M/AR[0]  |                3 |             10 |
-|  clkwiz/inst/clk_out2           | U_xgriscv/dp/pr1M/E[0]         | U_xgriscv/dp/pr1M/AR[0]  |                8 |             14 |
-|  clkwiz/inst/clk_out2           | U_xgriscv/dp/pr1M/p_1_in[0]    |                          |                4 |             16 |
-|  clkwiz/inst/clk_out2           | U_xgriscv/dp/pr1M/p_1_in[1]    |                          |                4 |             16 |
-|  clkwiz/inst/clk_out2           | U_xgriscv/dp/regM/p_1_in[0]    |                          |                4 |             16 |
-|  clkwiz/inst/clk_out2           | U_xgriscv/dp/regM/p_1_in[1]    |                          |                4 |             16 |
-|  clkwiz/inst/clk_out2           | U_xgriscv/dp/pr1M/E[0]         | U_xgriscv/dp/pr2M/AR[0]  |               13 |             18 |
-|  clkwiz/inst/clk_out2           | U_xgriscv/dp/prD/E[0]          | U_xgriscv/dp/pcreg/AR[0] |               10 |             32 |
-|  clkwiz/inst/clk_out2           | U_xgriscv/dp/prD/q[63]_i_1_n_0 | U_xgriscv/dp/prD/AR[0]   |               12 |             51 |
-|  clkwiz/inst/clk_out2           |                                | U_7SEG/rst               |               29 |             54 |
-|  clkwiz/inst/clk_out2           |                                | U_xgriscv/dp/prD/AR[0]   |               19 |             60 |
-|  clkwiz/inst/clk_out2           |                                | U_xgriscv/dp/pcreg/AR[0] |               24 |             79 |
-|  clkwiz/inst/clk_out2           |                                | U_xgriscv/dp/pr2M/AR[0]  |               57 |             82 |
-|  clkwiz/inst/clk_out2           |                                | U_xgriscv/dp/pr1M/AR[0]  |               48 |             94 |
-|  clkwiz/inst/clk_out2           | U_xgriscv/dp/regW/Q[0]         |                          |               18 |            144 |
-+---------------------------------+--------------------------------+--------------------------+------------------+----------------+
++---------------------------------+--------------------------------+-------------------------------+------------------+----------------+
+|           Clock Signal          |          Enable Signal         |        Set/Reset Signal       | Slice Load Count | Bel Load Count |
++---------------------------------+--------------------------------+-------------------------------+------------------+----------------+
+|  clkwiz/inst/clk_out2           | U_xgriscv/dp/prD/q[63]_i_1_n_0 | U_7SEG/rst                    |                1 |              2 |
+|  U_7SEG/seg7_clk                |                                | U_7SEG/rst                    |                2 |              3 |
+|  U_xgriscv/dp/prD/q_reg[2]_0[0] |                                |                               |                2 |              4 |
+|  clkwiz/inst/clk_out2           |                                | U_xgriscv/dp/pr1M/q_reg[19]_0 |                6 |              8 |
+|  clkwiz/inst/clk_out2           | U_xgriscv/dp/prD/q[63]_i_1_n_0 | U_xgriscv/dp/pr2M/AR[0]       |                3 |             10 |
+|  clkwiz/inst/clk_out2           | U_xgriscv/dp/pr1M/E[0]         | U_xgriscv/dp/pr1M/AR[0]       |                9 |             14 |
+|  clkwiz/inst/clk_out2           | U_xgriscv/dp/pr1M/E[0]         | U_xgriscv/dp/pr2M/AR[0]       |               11 |             18 |
+|  clkwiz/inst/clk_out2           |                                |                               |                8 |             24 |
+|  clkwiz/inst/clk_out2           | U_xgriscv/dp/prD/E[0]          | U_xgriscv/dp/pcreg/AR[0]      |               13 |             32 |
+|  clkwiz/inst/clk_out2           | U_xgriscv/dp/prD/q[63]_i_1_n_0 | U_xgriscv/dp/prD/AR[0]        |               10 |             51 |
+|  clkwiz/inst/clk_out2           |                                | U_7SEG/rst                    |               25 |             54 |
+|  clkwiz/inst/clk_out2           |                                | U_xgriscv/dp/prD/AR[0]        |               23 |             60 |
+|  clkwiz/inst/clk_out2           | U_xgriscv/dp/regM/we           |                               |               16 |             64 |
+|  clkwiz/inst/clk_out2           |                                | U_xgriscv/dp/pcreg/AR[0]      |               28 |             79 |
+|  clkwiz/inst/clk_out2           |                                | U_xgriscv/dp/pr2M/AR[0]       |               49 |             82 |
+|  clkwiz/inst/clk_out2           |                                | U_xgriscv/dp/pr1M/AR[0]       |               50 |             94 |
+|  clkwiz/inst/clk_out2           | U_xgriscv/dp/regW/Q[0]         |                               |               18 |            144 |
++---------------------------------+--------------------------------+-------------------------------+------------------+----------------+
 
 
 +--------+-----------------------+
@@ -75,9 +74,10 @@ Table of Contents
 | 2      |                     1 |
 | 3      |                     1 |
 | 4      |                     1 |
+| 8      |                     1 |
 | 10     |                     1 |
 | 14     |                     1 |
-| 16+    |                    13 |
+| 16+    |                    11 |
 +--------+-----------------------+
 
 

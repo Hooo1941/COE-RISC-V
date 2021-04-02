@@ -31,6 +31,10 @@ read_verilog -library xil_defaultlib {
   C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_regfile.v
   C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv_fpga_top.v
 }
+read_ip -quiet c:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.srcs/sources_1/ip/memip/memip.xci
+set_property used_in_implementation false [get_files -all c:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.srcs/sources_1/ip/memip/memip_ooc.xdc]
+set_property is_locked true [get_files c:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.srcs/sources_1/ip/memip/memip.xci]
+
 read_ip -quiet C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.srcs/sources_1/ip/imem/imem.xci
 set_property used_in_implementation false [get_files -all c:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.srcs/sources_1/ip/imem/imem_ooc.xdc]
 set_property is_locked true [get_files C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.srcs/sources_1/ip/imem/imem.xci]

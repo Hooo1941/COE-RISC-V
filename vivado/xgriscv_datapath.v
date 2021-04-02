@@ -353,14 +353,14 @@ module datapath (
 //   assign stall = (memtoregE & ~memwriteD & ((rs1D == rdE) | (rs2D == rdE))) |  //load-use
 //   (branchD != 4'b0000 & regwriteE & ((rs1D == rdE) | (rs2D == rdE)));  //arith-beq
 
-  assign stall = ((memtoregE & ~memwriteD) |  //load-use
-  (branchD != 4'b0000 & regwriteE)) //arith-beq
+  assign stall = (memtoregE |  //load-use
+  ((branchD != 4'b0000 | jalrD) & regwriteE)) //arith-beq
   & ((rs1D == rdE) | (rs2D == rdE));
 
 //   assign stall = ((branchD == 4'b0000) & memtoregE & ((rs1D == rdE) | (rs2D == rdE)) & ~memwriteD) |  //load-use
 //   ((branchD != 4'b0000) & ~memtoregE & regwriteE & ((rs1D == rdE) | (rs2D == rdE)));  //arith-beq //0.13ns
 
-  assign loadbranch = (branchD != 4'b0000) & memtoregE & ((rs1D == rdE) | (rs2D == rdE));
+  assign loadbranch = ((branchD != 4'b0000) & memtoregE & ((rs1D == rdE) | (rs2D == rdE))) | (jalrD & rs1D == rdE & memtoregE);
   // EX/MEM pipeline registers
   // for control signals
   wire memtoregM, regwriteM, jalM, lunsignedM;

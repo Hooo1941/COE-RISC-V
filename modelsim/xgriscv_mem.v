@@ -19,7 +19,7 @@ module imem (
   reg [`INSTR_SIZE-1:0] RAM[`IMEM_SIZE-1:0];
 
   initial begin
-    $readmemh("riscv32_forwarding_sim3.dat", RAM);
+    $readmemh("riscv32_forwarding_sim3_modified.dat", RAM);
     //$readmemh("riscv32_sim6.dat", RAM);
   end
 

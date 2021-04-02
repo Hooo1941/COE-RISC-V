@@ -3,5 +3,8 @@
 
 # XDC: C:/Users/Qiu/Desktop/codlab/work/vivado/constraints/Nexys4DDR_CPU.xdc
 
+# IP: ip/memip/memip.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==memip || ORIG_REF_NAME==memip}]
+
 # IP: ip/imem/imem.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==imem || ORIG_REF_NAME==imem}]

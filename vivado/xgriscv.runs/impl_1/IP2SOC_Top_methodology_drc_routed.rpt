@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date         : Wed Mar 24 20:18:10 2021
+| Date         : Fri Mar 26 08:48:28 2021
 | Host         : Hoo running 64-bit major release  (build 9200)
 | Command      : report_methodology -file IP2SOC_Top_methodology_drc_routed.rpt -rpx IP2SOC_Top_methodology_drc_routed.rpx
 | Design       : IP2SOC_Top

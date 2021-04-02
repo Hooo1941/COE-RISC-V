@@ -56,6 +56,8 @@ set rc [catch {
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES XPM_CDC [current_project]
   add_files -quiet C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.runs/synth_1/IP2SOC_Top.dcp
+  read_ip -quiet c:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.srcs/sources_1/ip/memip/memip.xci
+  set_property is_locked true [get_files c:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.srcs/sources_1/ip/memip/memip.xci]
   read_ip -quiet C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.srcs/sources_1/ip/imem/imem.xci
   set_property is_locked true [get_files C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.srcs/sources_1/ip/imem/imem.xci]
   read_ip -quiet C:/Users/Qiu/Desktop/codlab/work/vivado/xgriscv.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci

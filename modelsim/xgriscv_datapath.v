@@ -71,11 +71,10 @@ module datapath (
   pcenr pcreg (
       clk,
       reset,
-      en,
+      ~stall,
       nextpcF,
       pcF
   );
-  assign en = ~stall;
   addr_adder pcadder1 (
       pcF,
       `ADDR_SIZE'b100,
@@ -85,33 +84,16 @@ module datapath (
   ///////////////////////////////////////////////////////////////////////////////////
   // IF/ID pipeline registers
   wire [`INSTR_SIZE-1:0] instrD;
-  wire [`ADDR_SIZE-1:0] pcD, pcplus4D;
+  wire [`ADDR_SIZE-1:0] pcD;
   wire flushD = ((branchT | jalD) & ~stall) | loadbranch;
-
-  flopenrc #(`INSTR_SIZE) pr1D (
-      clk,
-      reset,
-      en,
-      flushD,
-      instrF,
-      instrD
-  );  // instruction
-  flopenrc #(`ADDR_SIZE) pr2D (
-      clk,
-      reset,
-      en,
-      flushD,
-      pcF,
-      pcD
-  );  // pc
-  flopenrc #(`ADDR_SIZE) pr3D (
-      clk,
-      reset,
-      en,
-      flushD,
-      pcplus4F,
-      pcplus4D
-  );  // pc+4
+  flopenrc #(`INSTR_SIZE+`ADDR_SIZE) prD (
+    clk,
+    reset,
+    ~stall,
+    flushD,
+    {instrF, pcF},
+    {instrD, pcD}
+  ); // 0.2ns
   mux2 #(`ADDR_SIZE) pcsrcmux2 (
       nextpcF1,
       pcD,
@@ -161,17 +143,19 @@ module datapath (
       wdataW
   );
 
-  wire forwardD1, forwardD2;
+  wire [1:0] forwardD1, forwardD2;
 
-  mux2 #(`XLEN) rdata1mux (
+  mux3 #(`XLEN) rdata1mux (
       rdata1R,
       aluoutM,
+      wdataW,
       forwardD1,
       rdata1D
   );
-  mux2 #(`XLEN) rdata2mux (
+  mux3 #(`XLEN) rdata2mux (
       rdata2R,
       aluoutM,
+      wdataW,
       forwardD2,
       rdata2D
   );
@@ -209,7 +193,8 @@ module datapath (
   wire [1:0] swhbE, lwhbE, alusrcaE, alusrcbE;
   wire [3:0] aluctrlE;
   wire flushE = loadbranch | stall;
-  floprc #(17) regE (
+  wire itypeE;
+  floprc #(18) regE (
       clk,
       reset,
       flushE,
@@ -223,7 +208,8 @@ module datapath (
         alusrcaD,
         alusrcbD,
         aluctrlD,
-        jalD
+        jalD,
+        itype
       },
       {
         memtoregE,
@@ -235,7 +221,8 @@ module datapath (
         alusrcaE,
         alusrcbE,
         aluctrlE,
-        jalE
+        jalE,
+        itypeE
       }
   );
 
@@ -243,7 +230,14 @@ module datapath (
   wire [`XLEN-1:0] srca1E, srcb1E, immoutE, srca2E, srca3E, srcb2E, srcb3E, aluoutE;
   wire [`RFIDX_WIDTH-1:0] rs1E, rs2E, rdE;
   wire [4:0] shamtE;
-  wire [`ADDR_SIZE-1:0] pcE, pcplus4E;
+  wire [`ADDR_SIZE-1:0] pcE;
+//   floprc #(`XLEN + `XLEN + `XLEN + `RFIDX_WIDTH + `RFIDX_WIDTH + `RFIDX_WIDTH + 5 + `ADDR_SIZE) prE (
+//       clk,
+//       reset,
+//       flushE,
+//       {rdata1D, rdata2D, immoutD, rs1D, rs2D, rdD, shamtD, pcD},
+//       {srca1E, srcb1E, immoutE, rs1E, rs2E, rdE, shamtE, pcE}
+//   );
   floprc #(`XLEN) pr1E (
       clk,
       reset,
@@ -300,13 +294,6 @@ module datapath (
       pcD,
       pcE
   );  //pc
-  floprc #(`ADDR_SIZE) pr9E (
-      clk,
-      reset,
-      flushD,
-      pcplus4D,
-      pcplus4E
-  );  // pc+4
 
   // execute stage logic
   wire [1:0] forwardaE, forwardbE;
@@ -338,11 +325,20 @@ module datapath (
       alusrcbE,
       srcb3E
   );  // srcb2mux
+  wire forwardcE, forwarddE;
+  wire [4:0] shamtE1;
+  mux3 #(5) shamtEmux (
+      shamtE,
+      aluoutM[4:0],  //from MEM(arith)
+      wdataW[4:0],  //from WB(load)
+      ~itypeE ? (forwardcE ? 2'b01 : (forwarddE ? 2'b10 : 2'b00)) : 2'b00,
+      shamtE1
+  );
 
   alu alu (
       srca3E,
       srcb3E,
-      shamtE,
+      shamtE1,
       aluctrlE,
       aluoutE,
       overflowE,
@@ -350,63 +346,64 @@ module datapath (
       ltE,
       geE
   );
-  assign stall = ((branchD == 4'b0000) & memtoregE & ((rs1D == rdE) | (rs2D == rdE)) & ~memwriteD) |  //load-use
-  ((branchD != 4'b0000) & ~memtoregE & regwriteE & ((rs1D == rdE) | (rs2D == rdE)));  //arith-beq
+//   assign stall = (memtoregE & ~memwriteD & ((rs1D == rdE) | (rs2D == rdE))) |  //load-use
+//   (branchD != 4'b0000 & regwriteE & ((rs1D == rdE) | (rs2D == rdE)));  //arith-beq
 
-  assign loadbranch = (branchD != 4'b0000) & memtoregE & ((rs1D == rdE) | (rs2D == rdE));
+  assign stall = (memtoregE |  //load-use
+  ((branchD != 4'b0000 | jalrD) & regwriteE)) //arith-beq
+  & ((rs1D == rdE) | (rs2D == rdE));
+
+//   assign stall = ((branchD == 4'b0000) & memtoregE & ((rs1D == rdE) | (rs2D == rdE)) & ~memwriteD) |  //load-use
+//   ((branchD != 4'b0000) & ~memtoregE & regwriteE & ((rs1D == rdE) | (rs2D == rdE)));  //arith-beq //0.13ns
+
+  assign loadbranch = ((branchD != 4'b0000) & memtoregE & ((rs1D == rdE) | (rs2D == rdE))) | (jalrD & rs1D == rdE & memtoregE);
   // EX/MEM pipeline registers
   // for control signals
   wire memtoregM, regwriteM, jalM, lunsignedM;
   wire [1:0] swhbM, lwhbM;
-  wire flushM = 0;
-  floprc #(9) regM (
+  flopr #(9) regM (
       clk,
       reset,
-      flushM,
       {memtoregE, regwriteE, memwriteE, lunsignedE, swhbE, lwhbE, jalE},
       {memtoregM, regwriteM, memwriteM, lunsignedM, swhbM, lwhbM, jalM}
   );
 
   // for data
   wire [`RFIDX_WIDTH-1:0] rs2M, rdM;
-  wire [`ADDR_SIZE-1:0] pcplus4M;
   wire [`XLEN-1:0] writedataM1;
-  floprc #(`XLEN) pr1M (
+  flopr #(`XLEN) pr1M (
       clk,
       reset,
-      flushM,
       aluoutE,
       aluoutM
   );
-  floprc #(`XLEN) pr2M (
+  flopr #(`XLEN) pr2M (
       clk,
       reset,
-      flushM,
       srcb1E,
       writedataM1
   );
-  floprc #(`RFIDX_WIDTH) pr3M (
+  flopr #(`RFIDX_WIDTH) pr3M (
       clk,
       reset,
-      flushM,
       rdE,
       rdM
   );
-  floprc #(`ADDR_SIZE) pr4M (
+  flopr #(`RFIDX_WIDTH) pr5M (
       clk,
       reset,
-      flushM,
-      pcplus4E,
-      pcplus4M
-  );  // pc+4
-  floprc #(`RFIDX_WIDTH) pr5M (
-      clk,
-      reset,
-      flushM,
       rs2E,
       rs2M
   );
 
+//   wire [`RFIDX_WIDTH-1:0] rs2M, rdM;
+//   wire [`XLEN-1:0] writedataM1;
+//   flopr #(9 + `XLEN + `XLEN + `RFIDX_WIDTH + `RFIDX_WIDTH) prM (
+//       clk,
+//       reset,
+//       {memtoregE, regwriteE, memwriteE, lunsignedE, swhbE, lwhbE, jalE, aluoutE, srcb1E, rdE, rs2E},
+//       {memtoregM, regwriteM, memwriteM, lunsignedM, swhbM, lwhbM, jalM, aluoutM, writedataM1, rdM, rs2M}
+//   );
   // memory stage logic
   ampattern amp (
       aluoutM[1:0],
@@ -456,22 +453,18 @@ module datapath (
       memdataM
   );
 
-  assign forwardD1 = (rs1D == rdM) & regwriteM;
-  assign forwardD2 = (rs2D == rdM) & regwriteM;
-
-  // MEM/WB pipeline registers
-  // for control signals
-  wire flushW = 0;
-  floprc #(3) regW (
+  assign forwardcE = (rs2E == rdM) & regwriteM & ~memtoregM;
+//   MEM/WB pipeline registers
+//   for control signals
+  flopr #(3) regW (
       clk,
       reset,
-      flushW,
       {memtoregM, regwriteM, jalM},
       {memtoregW, regwriteW, jalW}
   );
 
   // for data
-  wire [`XLEN-1:0] aluoutW, memdataW, wdata0W, pcplus4W;
+  wire [`XLEN-1:0] aluoutW, memdataW, wdata0W;
   wire forwardM = (waddrW == rs2M) & regwriteW;
 
   mux2 #(32) forwardmemmux (
@@ -481,39 +474,52 @@ module datapath (
       writedataM
   );
 
-  floprc #(`XLEN) pr1W (
+  flopr #(`XLEN) pr1W (
       clk,
       reset,
-      flushW,
       aluoutM,
       aluoutW
   );
-  floprc #(`XLEN) pr2W (
+  flopr #(`XLEN) pr2W (
       clk,
       reset,
-      flushW,
       memdataM,
       memdataW
   );
-  floprc #(`RFIDX_WIDTH) pr3W (
+  flopr #(`RFIDX_WIDTH) pr3W (
       clk,
       reset,
-      flushW,
       rdM,
       waddrW
   );
-  floprc #(`ADDR_SIZE) pr4W (
-      clk,
-      reset,
-      flushW,
-      pcplus4M,
-      pcplus4W
-  );  // pc+4, for JAL(store pc+4 to rd)
 
-  // write-back stage logic
+//   wire [`XLEN-1:0] aluoutW, memdataW, wdata0W;
+//   wire forwardM;
+
+//   flopr #(3 + `XLEN + `XLEN + `RFIDX_WIDTH) regW (
+//       clk,
+//       reset,
+//       {memtoregM, regwriteM, jalM, aluoutM, memdataM, rdM},
+//       {memtoregW, regwriteW, jalW, aluoutW, memdataW, waddrW}
+//   );
+
+//   mux2 #(32) forwardmemmux (
+//       writedataM1,
+//       wdataW,
+//       forwardM,
+//       writedataM
+//   );
+
+//   // write-back stage logic
+//   assign forwardM = (waddrW == rs2M) & regwriteW;
   assign wdataW = memtoregW ? memdataW : aluoutW;
-  assign forwardaE = ((rs1E == rdM) & regwriteM) ? 2'b10 :
-  (((rs1E == waddrW) & regwriteW) ? 2'b01 : 2'b00);
-  assign forwardbE = ((rs2E == rdM) & regwriteM) ? 2'b10 :
-  (((rs2E == waddrW) & regwriteW) ? 2'b01 : 2'b00);
+
+  assign forwardD1 = (rs1D == rdM & regwriteM & ~memtoregM) ? 2'b01 : (rs1D == waddrW & regwriteW ? 2'b10 : 2'b00);
+  assign forwardD2 = (rs2D == rdM & regwriteM & ~memtoregM) ? 2'b01 : (rs2D == waddrW & regwriteW ? 2'b10 : 2'b00);
+
+  assign forwardaE = (rs1E == rdM & regwriteM) ? 2'b10 :
+  ((rs1E == waddrW & regwriteW) ? 2'b01 : 2'b00);
+  assign forwardbE = (rs2E == rdM & regwriteM) ? 2'b10 :
+  ((rs2E == waddrW & regwriteW) ? 2'b01 : 2'b00);
+  assign forwarddE = rs2E == waddrW & regwriteW;
 endmodule
